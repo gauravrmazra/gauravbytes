@@ -1,29 +1,25 @@
 {
-	"namespace": "com.gauravbytes.avro",
-	"protocol": "EmailSender",
- 	"types": [
- 				{
-					"name": "EmailMessage", "type": "record",
-					"fields": [
-          						{
-          							"name": "to",
-          							"type": "string"
-          						},
-          						{
-          							"name": "from",
-          							"type": "string"
-          						},
-          						{
-          							"name": "body",
-          							"type": "string"
-          						}
-							]
-				}
-			],
- 	"messages": {
- 					"send": {
-         						"request": [{"name": "email", "type": "EmailMessage"}],
-         						"response": "string"
-     						}
-				}
+  "namespace": "com.gauravbytes.avro",
+  "protocol": "EmailSender",
+   "types": [{
+     "name": "EmailMessage", "type": "record",
+     "fields": [{
+       "name": "to",
+       "type": "string"
+     },
+     {
+       "name": "from",
+       "type": "string"
+     },
+     {
+       "name": "body",
+       "type": "string"
+     }]
+   }],
+   "messages": {
+     "send": {
+       "request": [{"name": "email", "type": "EmailMessage"}],
+       "response": "string"
+     }
+   }
 }
