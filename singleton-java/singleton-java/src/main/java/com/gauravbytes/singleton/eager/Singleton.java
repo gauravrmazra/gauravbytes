@@ -1,4 +1,4 @@
-package com.gauravbytes.singleton;
+package com.gauravbytes.singleton.eager;
 
 /**
  * Eager initialized Singleton
