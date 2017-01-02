@@ -1,4 +1,4 @@
-package com.gauravbytes.clone.shallow;
+package com.gauravbytes.clone.deep;
 
 /**
  * 
@@ -10,10 +10,6 @@ public class Address implements Cloneable {
 	private String streetAddress;
 	private String city;
 	private String state;
-	
-	public Address() {
-		
-	}
 	
 	public Address(String streetAddress, String city, String state) {
 		this.setStreetAddress(streetAddress);
@@ -88,8 +84,8 @@ public class Address implements Cloneable {
 	}
 	
 	@Override
-	public Object clone() throws CloneNotSupportedException {
+	public Address clone() throws CloneNotSupportedException {
 		//Since no immutable object are there we will use shallow cloning only
-		return super.clone();
+		return (Address)super.clone();
 	}
 }
