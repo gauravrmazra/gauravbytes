@@ -15,9 +15,9 @@ public class Java8ConsumerExample {
 		// fetch employees from Stub
 		List<Employee> employees = EmployeeStub.getEmployees();
 		// create a consumer on employee
-		Consumer<Employee> employeeConsolePrinter = System.out::println;
+		Consumer<Employee> consolePrinter = System.out::println;
 		// use List's retrofitted method for iteration on employees and consume it
-		employees.forEach(employeeConsolePrinter);
+		employees.forEach(consolePrinter);
 
 		BiConsumer<Long, Employee> employeeBiConsumer = (id, employee) -> System.out.println(id + " : " + employee);
 		Map<Long, Employee> idToEmployeeMap = EmployeeStub.getEmployeeAsMap();
