@@ -15,13 +15,24 @@ public class Java8ConsumerExample {
 	public static void main(String[] args) {
 		preJava8CollectionIteration();
 		postJava8CollectionIteration();
-		
+		preJava8MapIteration();
+		postJava8MapIteration();
+	}
+	
+	private static void preJava8MapIteration() {
+		Map<Long, Employee> idToEmployeeMap = EmployeeStub.getEmployeeAsMap();
+		for (Map.Entry<Long, Employee> entry : idToEmployeeMap.entrySet()) {
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		}
+	}
+
+	private static void postJava8MapIteration() {
 		BiConsumer<Long, Employee> employeeBiConsumer = (id, employee) -> System.out.println(id + " : " + employee);
 		Map<Long, Employee> idToEmployeeMap = EmployeeStub.getEmployeeAsMap();
 		idToEmployeeMap.forEach(employeeBiConsumer);
 	}
 
-	public static void preJava8CollectionIteration() {
+	private static void preJava8CollectionIteration() {
 		List<Employee> employees = EmployeeStub.getEmployees();
 		Iterator<Employee> employeeItr = employees.iterator();
 		Employee employee;
@@ -31,7 +42,7 @@ public class Java8ConsumerExample {
 		}
 	}
 
-	public static void postJava8CollectionIteration() {
+	private static void postJava8CollectionIteration() {
 		// fetch employees from Stub
 		List<Employee> employees = EmployeeStub.getEmployees();
 		// create a consumer on employee
