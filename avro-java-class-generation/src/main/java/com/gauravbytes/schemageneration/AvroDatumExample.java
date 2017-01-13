@@ -51,9 +51,9 @@ public class AvroDatumExample {
 		DatumWriter<Employee> employeeWriter = new SpecificDatumWriter<>(Employee.class);
 		byte[] data;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-			Encoder jsonEncoder = EncoderFactory.get().binaryEncoder(baos, null);
-			employeeWriter.write(employee, jsonEncoder);
-			jsonEncoder.flush();
+			Encoder binaryEncoder = EncoderFactory.get().binaryEncoder(baos, null);
+			employeeWriter.write(employee, binaryEncoder);
+			binaryEncoder.flush();
 			data = baos.toByteArray();
 		}
 		
@@ -61,8 +61,8 @@ public class AvroDatumExample {
 		System.out.println(data);
 		
 		DatumReader<Employee> employeeReader = new SpecificDatumReader<>(Employee.class);
-		Decoder decoder = DecoderFactory.get().binaryDecoder(data, null);
-		employee = employeeReader.read(null, decoder);
+		Decoder binaryDecoder = DecoderFactory.get().binaryDecoder(data, null);
+		employee = employeeReader.read(null, binaryDecoder);
 		//data after deserialization
 		System.out.println(employee);
 	}
