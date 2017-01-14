@@ -11,6 +11,9 @@ public class Address implements Cloneable {
 	private String city;
 	private String state;
 	
+	public Address() {
+	}
+	
 	public Address(String streetAddress, String city, String state) {
 		this.setStreetAddress(streetAddress);
 		this.setCity(city);

@@ -85,9 +85,8 @@ public class Employee implements Cloneable {
 	}
 	
 	@Override
-	public Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
+	public Employee clone() throws CloneNotSupportedException {
+		return (Employee)super.clone();
 	}
 	
 }

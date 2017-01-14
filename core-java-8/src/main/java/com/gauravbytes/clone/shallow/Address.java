@@ -88,8 +88,8 @@ public class Address implements Cloneable {
 	}
 	
 	@Override
-	public Object clone() throws CloneNotSupportedException {
+	public Address clone() throws CloneNotSupportedException {
 		//Since no immutable object are there we will use shallow cloning only
-		return super.clone();
+		return (Address)super.clone();
 	}
 }
