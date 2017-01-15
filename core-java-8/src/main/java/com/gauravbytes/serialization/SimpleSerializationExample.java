@@ -16,24 +16,19 @@ public class SimpleSerializationExample {
 	public static void main(String[] args) {
 		Dog dog = new Dog(50, "Titan"); // create dog object with height 50 and name Titan 
 	  System.out.println("Before Serialization");
-	  System.out.println(dog.toString());
-	  try {
-	   FileOutputStream fos = new FileOutputStream("dog.ser");
-	   ObjectOutputStream oos = new ObjectOutputStream(fos);
+	  System.out.println(dog);
+	  try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("dog.ser"))) {
 	   oos.writeObject(dog);// serialize the dog object
-	   oos.close();
 	  }
 	  catch (IOException ioEx) { /* Don't Swallow exception in real projects */ }
 	  
-	  try {
-	   dog = null; // let clear old dog object reference
-	   FileInputStream fis = new FileInputStream("dog.ser");
-	   ObjectInputStream ois = new ObjectInputStream(fis);
+	  dog = null; // let clear old dog object reference
+	  try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("dog.ser"))) {
 	   dog = (Dog) ois.readObject();// deserialize dog object
-	   ois.close();
-	   System.out.println("After Serialization");
-	   System.out.println(dog.toString());
 	  }
 	  catch (IOException | ClassCastException | ClassNotFoundException ex) { /* Don't Swallow exception in real projects */ }
+
+	  System.out.println("After Serialization");
+	  System.out.println(dog);
 	}
 }
