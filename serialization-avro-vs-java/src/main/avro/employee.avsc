@@ -1,0 +1,22 @@
+{
+  "type" : "record",
+  "name" : "Employee",
+  "namespace" : "com.gauravbytes.avro",
+  "doc" : "Schema to hold employee object",
+  "fields" : [{
+    "name" : "firstName",
+    "type" : "string"
+  },
+  {
+    "name" : "lastName",
+    "type" : "string"
+  }, 
+  {
+    "name" : "sex", 
+    "type" : {
+      "name" : "SEX",
+      "type" : "enum",
+      "symbols" : ["MALE", "FEMALE"]
+  	}
+  }]
+}
