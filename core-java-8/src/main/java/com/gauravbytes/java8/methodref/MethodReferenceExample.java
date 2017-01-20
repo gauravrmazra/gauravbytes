@@ -12,6 +12,7 @@ import java.util.List;
 public class MethodReferenceExample {
 	public static void main(String[] args) {
 		instanceMethodReference();
+		
 	}
 
 	private static void instanceMethodReference() {
