@@ -3,7 +3,7 @@ package com.gauravbytes.serialization;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 
-import com.gauravbytes.model.Employee;
+import com.gauravbytes.model.Employee2;
 import com.gauravbytes.model.Sex;
 
 /**
@@ -13,7 +13,7 @@ import com.gauravbytes.model.Sex;
  */
 public class JavaDefaultSerialization {
 	public static void main(String[] args) throws Exception {
-		Employee employee = new Employee("Gaurav", "Mazra", Sex.MALE);
+		Employee2 employee = new Employee2("Gaurav", "Mazra", Sex.MALE);
 		byte[] payload;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream(); 
 				ObjectOutputStream  oos = new ObjectOutputStream(baos);) {
