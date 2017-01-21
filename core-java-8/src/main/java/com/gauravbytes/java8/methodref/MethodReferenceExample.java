@@ -83,10 +83,10 @@ public class MethodReferenceExample {
 		instanceMethodReference();
 		staticMethodReference();
 		constructorReference();
-		
 	}
 	
 	private static void staticMethodReference() {
+		System.out.println("static method reference");
 		Comparator<Employee> ageComparator = MethodReferenceExample::compareByAge;
 
 		//above is equivalent to below one
@@ -96,10 +96,10 @@ public class MethodReferenceExample {
 		
 		Collections.sort(employees, ageComparator);
 		System.out.println(employees);
-		
 	}
 	
 	private static void constructorReference() {
+		System.out.println("Constructor reference");
 		Function<String, Job> jobCreator = Job::new;
 		// this is equivalent to 
 		//Function<String, Job> jobCreator2 = (jobName) -> new Job(jobName);
@@ -108,12 +108,12 @@ public class MethodReferenceExample {
 	}
 
 	private static void instanceMethodReference() {
+		System.out.println("Instance method reference");
 		Comparator<String> stringIgnoreCase = String::compareToIgnoreCase;
 		// this is equivalent to below
 		//Comparator<String> stringIgnoreCase2 = (first, second) -> first.compareToIgnoreCase(second);
 		List<String> values = Arrays.asList("Gaurav", "Sunil", "Anil", "Rajesh", "sajjad");
 		System.out.println(values);
-		
 		
 		Collections.sort(values, stringIgnoreCase);
 		System.out.println(values);
