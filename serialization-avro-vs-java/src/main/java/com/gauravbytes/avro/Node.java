@@ -11,8 +11,8 @@ import org.apache.avro.specific.SpecificData;
 /** Schema to hold employee object */
 @org.apache.avro.specific.AvroGenerated
 public class Node extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4260484878048208132L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Node\",\"namespace\":\"com.gauravbytes.avro\",\"doc\":\"Schema to hold employee object\",\"fields\":[{\"name\":\"value\",\"type\":\"string\"},{\"name\":\"next\",\"type\":\"Node\"}]}");
+  private static final long serialVersionUID = -5894767530610351710L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Node\",\"namespace\":\"com.gauravbytes.avro\",\"doc\":\"Schema to hold employee object\",\"fields\":[{\"name\":\"value\",\"type\":\"string\"},{\"name\":\"next\",\"type\":[\"null\",\"Node\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence value;
   @Deprecated public com.gauravbytes.avro.Node next;
