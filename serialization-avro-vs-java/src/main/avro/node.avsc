@@ -1,0 +1,14 @@
+{
+  "type" : "record",
+  "name" : "Node",
+  "namespace" : "com.gauravbytes.avro",
+  "doc" : "Schema to hold employee object",
+  "fields" : [{
+    "name" : "value",
+    "type" : "string"
+  },
+  {
+    "name" : "next",
+    "type" : "Node"
+  }]
+}

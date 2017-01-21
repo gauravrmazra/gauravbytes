@@ -3,21 +3,23 @@ package com.gauravbytes.serialization;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 
-import com.gauravbytes.model.Employee;
-import com.gauravbytes.model.Sex;
+import com.gauravbytes.model.Node;
 
 /**
  * 
  * @author Gaurav Rai Mazra
  *
  */
-public class JavaDefaultSerialization {
+public class JavaSerializationCircularRefTest {
+	
 	public static void main(String[] args) throws Exception {
-		Employee employee = new Employee("Gaurav", "Mazra", Sex.MALE);
+		Node node = new Node("Gaurav");
+		node.setNode(node);
+		
 		byte[] payload;
 		try (ByteArrayOutputStream baos = new ByteArrayOutputStream(); 
 				ObjectOutputStream  oos = new ObjectOutputStream(baos);) {
-			oos.writeObject(employee);
+			oos.writeObject(node);
 			
 			payload = baos.toByteArray();
 		}
@@ -27,6 +29,5 @@ public class JavaDefaultSerialization {
 		}
 		System.out.println(new String(payload));
 		System.out.println(payload.length);
-		
 	}
 }
