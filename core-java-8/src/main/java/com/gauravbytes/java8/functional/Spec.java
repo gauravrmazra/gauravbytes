@@ -13,11 +13,11 @@ public interface Spec<T> {
 		return (t) -> !isSatisfiedBy(t);
 	}
 	
-	default Spec<T> and(Spec<T> other) {
+	default Spec<T> and(Spec<? super T> other) {
 		return (t) -> isSatisfiedBy(t) && other.isSatisfiedBy(t);
 	}
 	
-	default Spec<T> or(Spec<T> other) {
+	default Spec<T> or(Spec<? super T> other) {
 		return (t) -> isSatisfiedBy(t) || other.isSatisfiedBy(t);
 	}
 	
