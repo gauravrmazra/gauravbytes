@@ -25,6 +25,69 @@ public class MethodReferenceExample {
 		}
 	}
 	
+	static class User {
+		private String firstName;
+		private String lastName;
+
+		@Override
+		public String toString() {
+			return "User [firstName=" + firstName + ", lastName=" + lastName + "]";
+		}
+
+		public User(String firstName, String lastName) {
+			super();
+			this.firstName = firstName;
+			this.lastName = lastName;
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+			result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			User other = (User) obj;
+			if (firstName == null) {
+				if (other.firstName != null)
+					return false;
+			} else if (!firstName.equals(other.firstName))
+				return false;
+			if (lastName == null) {
+				if (other.lastName != null)
+					return false;
+			} else if (!lastName.equals(other.lastName))
+				return false;
+			return true;
+		}
+
+		public String getFirstName() {
+			return firstName;
+		}
+
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
+
+		public String getLastName() {
+			return lastName;
+		}
+
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+	}
+
 	static class Employee {
 		private String firstName;
 		private String lastName;
@@ -80,13 +143,14 @@ public class MethodReferenceExample {
 		return Integer.compare(first.age, second.age);
 	}
 	public static void main(String[] args) {
-		instanceMethodReference();
 		staticMethodReference();
+		instanceMethodReferenceOfArbitraryObject();
+		instanceMethodReference();
 		constructorReference();
 	}
 	
 	private static void staticMethodReference() {
-		System.out.println("static method reference");
+		System.err.println("static method reference");
 		Comparator<Employee> ageComparator = MethodReferenceExample::compareByAge;
 
 		//above is equivalent to below one
@@ -99,7 +163,7 @@ public class MethodReferenceExample {
 	}
 	
 	private static void constructorReference() {
-		System.out.println("Constructor reference");
+		System.err.println("Constructor reference");
 		Function<String, Job> jobCreator = Job::new;
 		// this is equivalent to 
 		//Function<String, Job> jobCreator2 = (jobName) -> new Job(jobName);
@@ -107,8 +171,8 @@ public class MethodReferenceExample {
 		System.out.println(jobCreator.apply("Create a new task"));
 	}
 
-	private static void instanceMethodReference() {
-		System.out.println("Instance method reference");
+	private static void instanceMethodReferenceOfArbitraryObject() {
+		System.err.println("Instance method reference of ArbitraryObject");
 		Comparator<String> stringIgnoreCase = String::compareToIgnoreCase;
 		// this is equivalent to below
 		//Comparator<String> stringIgnoreCase2 = (first, second) -> first.compareToIgnoreCase(second);
@@ -117,5 +181,21 @@ public class MethodReferenceExample {
 		
 		Collections.sort(values, stringIgnoreCase);
 		System.out.println(values);
+	}
+
+	static class MyComparator {
+		public int compareByFirstName(User first, User second) {
+			return first.getFirstName().compareTo(second.getFirstName());
+		}
+	}
+
+	private static void instanceMethodReference() {
+		System.err.println("Instance method reference");
+		List<User> users = Arrays.asList(new User("Gaurav", "Mazra"),
+		    new User("Arnav", "Singh"), new User("Daniel", "Verma"));
+		MyComparator comparator = new MyComparator();
+		System.out.println(users);
+		Collections.sort(users, comparator::compareByFirstName);
+		System.out.println(users);
 	}
 }
