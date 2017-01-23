@@ -142,6 +142,7 @@ public class MethodReferenceExample {
 	public static int compareByAge(Employee first, Employee second) {
 		return Integer.compare(first.age, second.age);
 	}
+
 	public static void main(String[] args) {
 		staticMethodReference();
 		instanceMethodReferenceOfArbitraryObject();
@@ -186,6 +187,10 @@ public class MethodReferenceExample {
 	static class MyComparator {
 		public int compareByFirstName(User first, User second) {
 			return first.getFirstName().compareTo(second.getFirstName());
+		}
+
+		public int compareByLastName(User first, User second) {
+			return first.getLastName().compareTo(second.getLastName());
 		}
 	}
 
