@@ -1,6 +1,5 @@
 package com.gauravbytes.java8.stream;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,7 +9,7 @@ import java.util.List;
  */
 public class StreamFilteringExample {
 	public static void main(String[] args) {
-		List<String> names = Arrays.asList("Gaurav", "Sumit", "Raman", "Gagan");
+		List<String> names = DataStub.getNames();
 		names.stream().filter((name) -> names.equals("Gaurav")).findFirst();
 	}
 }

@@ -14,6 +14,10 @@ public class LambdaTest {
 	}
 	
 	public static void main(String[] args) {
+		lambdaBindingTest();
+	}
+
+	private static void lambdaBindingTest() {
 		LambdaTest lambda = new LambdaTest();
 		// left side -> right side
 		// left side is parameter/arguments/ or can be empty
@@ -32,5 +36,13 @@ public class LambdaTest {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public boolean someLongRunningMethod() {
+		try {
+			Thread.sleep(10000l);
+		} catch (InterruptedException e) {
+		}
+		return true;
 	}
 }
