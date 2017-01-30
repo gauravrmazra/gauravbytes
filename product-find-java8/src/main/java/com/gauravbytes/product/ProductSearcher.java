@@ -12,8 +12,8 @@ import java.util.List;
 public class ProductSearcher {
 	private ProductCatalog catalog;
 
-	public ProductSearcher(ProductCatalog db) {
-		this.catalog = db;
+	public ProductSearcher(ProductCatalog catalog) {
+		this.catalog = catalog;
 	}
 
 	public List<Product> byID(String pid) {
