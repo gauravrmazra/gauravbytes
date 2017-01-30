@@ -102,4 +102,38 @@ public class Java8DefaultMethods {
 		Collections.sort(employees, comp);
 		System.out.println(employees);
 	}
+
+	interface MyLogicBuilder {
+		public void doNothing();
+
+		default void doSomething() {
+			System.out.println("Do Something from MyLogicBuilder");
+		}
+	}
+
+	interface MyBuilder extends MyLogicBuilder {
+		void doSomething();
+	}
+
+	interface NothingBuilder {
+		void doSomething();
+
+		default void doNothing() {
+			System.out.println("Do nothing from NothingBuilder");
+		}
+	}
+
+	class Something implements MyLogicBuilder, NothingBuilder {
+
+		@Override
+		public void doNothing() {
+			NothingBuilder.super.doNothing();
+		}
+
+		@Override
+		public void doSomething() {
+			MyLogicBuilder.super.doSomething();
+		}
+
+	}
 }
