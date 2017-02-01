@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
 import com.gauravbytes.java8.stream.StreamSamples.Person;
@@ -38,5 +39,10 @@ public class StreamCollectionExample {
 		String allPersonsFirstName = persons.stream()
 		    .collect(Collectors.mapping(Person::getFirstName, Collectors.joining("#")));
 		System.out.println(allPersonsFirstName);
+
+		// concurrent reduction with parallel stream
+		ConcurrentMap<Integer, List<Person>> personByAgeConcurrent = persons.stream()
+		    .collect(Collectors.groupingByConcurrent(Person::getAge));
+		System.out.println(personByAgeConcurrent);
 	}
 }

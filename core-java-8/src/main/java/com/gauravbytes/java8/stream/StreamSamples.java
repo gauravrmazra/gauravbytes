@@ -9,22 +9,22 @@ import java.util.Collection;
  *
  */
 public class StreamSamples {
-	public static enum Sex {
+	public static enum Gender {
 		MALE, FEMALE;
 	}
 
 	public static class Person {
 		private String firstName;
 		private String lastName;
-		private Sex sex;
+		private Gender gender;
 		private int age;
 		private int salary;
 
-		public Person(String firstName, String lastName, Sex sex, int age, int salary) {
+		public Person(String firstName, String lastName, Gender gender, int age, int salary) {
 			super();
 			this.firstName = firstName;
 			this.lastName = lastName;
-			this.sex = sex;
+			this.gender = gender;
 			this.age = age;
 			this.salary = salary;
 		}
@@ -41,8 +41,8 @@ public class StreamSamples {
 			return this.age;
 		}
 
-		public Sex getSex() {
-			return sex;
+		public Gender getGender() {
+			return gender;
 		}
 
 		public int getSalary() {
@@ -57,7 +57,7 @@ public class StreamSamples {
 			result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 			result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 			result = prime * result + salary;
-			result = prime * result + ((sex == null) ? 0 : sex.hashCode());
+			result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 			return result;
 		}
 
@@ -84,14 +84,14 @@ public class StreamSamples {
 				return false;
 			if (salary != other.salary)
 				return false;
-			if (sex != other.sex)
+			if (gender != other.gender)
 				return false;
 			return true;
 		}
 
 		@Override
 		public String toString() {
-			return "Person [firstName=" + firstName + ", lastName=" + lastName + ", sex=" + sex
+			return "Person [firstName=" + firstName + ", lastName=" + lastName + ", sex=" + gender
 			    + ", age=" + age + ", salary=" + salary + "]";
 		}
 	}
@@ -166,19 +166,19 @@ public class StreamSamples {
 	}
 
 	public static Collection<Person> getPersons() {
-		return Arrays.asList(new Person("Gaurav", "Mazra", Sex.MALE, 28, 10000),
-		    new Person("Gaurav", "Mazra", Sex.MALE, 28, 10000),
-		    new Person("Sandeep", "Shukla", Sex.MALE, 24, 5000),
-		    new Person("Rami", "Aggarwal", Sex.FEMALE, 32, 12000),
-		    new Person("Jiya", "Khan", Sex.FEMALE, 22, 4500),
-		    new Person("Rajesh", "Kumar", Sex.MALE, 45, 55000),
-		    new Person("Rampal", "Yadav", Sex.MALE, 35, 12000),
-		    new Person("Nisha", "Sharma", Sex.FEMALE, 26, 10000),
-		    new Person("Neha", "Kapoor", Sex.FEMALE, 21, 5500),
-		    new Person("Ramesh", "Chander", Sex.MALE, 22, 2500),
-		    new Person("Parul", "Mehta", Sex.FEMALE, 25, 8500),
-		    new Person("Sunil", "Kumar", Sex.MALE, 27, 6875),
-		    new Person("Prekha", "Verma", Sex.FEMALE, 20, 3600),
-		    new Person("Neeraj", "Shah", Sex.MALE, 25, 33000));
+		return Arrays.asList(new Person("Gaurav", "Mazra", Gender.MALE, 28, 10000),
+		    new Person("Gaurav", "Mazra", Gender.MALE, 28, 10000),
+		    new Person("Sandeep", "Shukla", Gender.MALE, 24, 5000),
+		    new Person("Rami", "Aggarwal", Gender.FEMALE, 32, 12000),
+		    new Person("Jiya", "Khan", Gender.FEMALE, 22, 4500),
+		    new Person("Rajesh", "Kumar", Gender.MALE, 45, 55000),
+		    new Person("Rampal", "Yadav", Gender.MALE, 35, 12000),
+		    new Person("Nisha", "Sharma", Gender.FEMALE, 26, 10000),
+		    new Person("Neha", "Kapoor", Gender.FEMALE, 21, 5500),
+		    new Person("Ramesh", "Chander", Gender.MALE, 22, 2500),
+		    new Person("Parul", "Mehta", Gender.FEMALE, 25, 8500),
+		    new Person("Sunil", "Kumar", Gender.MALE, 27, 6875),
+		    new Person("Prekha", "Verma", Gender.FEMALE, 20, 3600),
+		    new Person("Neeraj", "Shah", Gender.MALE, 25, 33000));
 	}
 }

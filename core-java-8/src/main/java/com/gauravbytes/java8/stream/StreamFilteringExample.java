@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.gauravbytes.java8.stream.StreamSamples.Person;
-import com.gauravbytes.java8.stream.StreamSamples.Sex;
+import com.gauravbytes.java8.stream.StreamSamples.Gender;
 
 /**
  * 
@@ -19,7 +19,7 @@ public class StreamFilteringExample {
 		    .ifPresent(System.out::println);
 
 		Collection<Person> persons = StreamSamples.getPersons();
-		List<Person> allMales = persons.stream().filter(p -> p.getSex() == Sex.MALE)
+		List<Person> allMales = persons.stream().filter(p -> p.getGender() == Gender.MALE)
 		    .collect(Collectors.toList());
 		System.out.println(allMales);
 	}

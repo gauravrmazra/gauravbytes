@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import com.gauravbytes.java8.stream.StreamSamples.Person;
-import com.gauravbytes.java8.stream.StreamSamples.Sex;
+import com.gauravbytes.java8.stream.StreamSamples.Gender;
 
 /**
  * 
@@ -22,7 +22,7 @@ public class ParallelStreamPerformanceTest {
 		List<Person> persons = new ArrayList<>(20000000);
 		for (int i = 0; i < 20000000; i++) {
 			persons.add(
-			    new Person("G" + i, "M" + i, Sex.MALE, random.nextInt(60),
+			    new Person("G" + i, "M" + i, Gender.MALE, random.nextInt(60),
 			        random.nextInt(50000)));
 		}
 
