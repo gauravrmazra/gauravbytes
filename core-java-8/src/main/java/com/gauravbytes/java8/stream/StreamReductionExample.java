@@ -1,5 +1,6 @@
 package com.gauravbytes.java8.stream;
 
+import java.util.Collection;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +18,8 @@ public class StreamReductionExample {
 		findLongestLine();
 
 		// reduction
-		Integer value = StreamSamples.getPersons().stream().map(Person::getAge).reduce(0,
+		Collection<Person> persons = StreamSamples.getPersons();
+		Integer value = persons.stream().map(Person::getAge).reduce(0,
 		    Integer::sum);
 		System.out.println("Sum of persons age: " + value);
 
@@ -25,21 +27,35 @@ public class StreamReductionExample {
 		    .ifPresent(sum -> System.out.println("Sum of 1 to 10: " + sum));
 
 		// average age
-		StreamSamples.getPersons().stream().mapToInt(Person::getAge).average()
+		persons.stream().mapToInt(Person::getAge).average()
 		    .ifPresent(System.out::println);
 
 		// max age from stream
-		StreamSamples.getPersons().stream().mapToInt(Person::getAge).max()
+		persons.stream().mapToInt(Person::getAge).max()
 		    .ifPresent(System.out::println);
 
 		// min age from stream
-		StreamSamples.getPersons().stream().mapToInt(Person::getAge).min()
+		persons.stream().mapToInt(Person::getAge).min()
 		    .ifPresent(System.out::println);
 
 		// better way
-		IntSummaryStatistics summaryStats = StreamSamples.getPersons().stream()
+		IntSummaryStatistics summaryStats = persons.stream()
 		    .map(Person::getAge).collect(Collectors.summarizingInt(t -> t));
 		System.out.println(summaryStats);
+
+		int sumOfFirst10 = IntStream.range(1, 10).reduce(0, Integer::sum);
+		System.out.println(sumOfFirst10);
+
+		int sumOfFirst10Parallel = IntStream.range(1, 10).parallel().reduce(0, Integer::sum);
+		System.out.println(sumOfFirst10Parallel);
+
+		/*
+		 * List<String> names = Arrays.asList("Mohan", "Sohan", "Ramesh"); String
+		 * result = names.stream().reduce("-", (s1, s2) -> {
+		 * System.out.println("First func:  " + s1 + " :: " + s2); return s1 + s2;
+		 * }, (p, q) -> { System.out.println("second func:  " + p + " :: " + q);
+		 * return p + q; }); System.out.println(result);
+		 */
 	}
 
 	private static void findLongestLine() {
