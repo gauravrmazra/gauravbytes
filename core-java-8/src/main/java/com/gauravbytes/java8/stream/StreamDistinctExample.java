@@ -1,7 +1,6 @@
 package com.gauravbytes.java8.stream;
 
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,16 +11,12 @@ import com.gauravbytes.java8.stream.StreamSamples.Person;
  * @author Gaurav Rai Mazra
  *
  */
-public class StreamSortingExample {
+public class StreamDistinctExample {
 	public static void main(String[] args) {
-		List<String> lines = DataStub.getLines();
-		lines.stream().sorted(Comparator.comparing(String::length).reversed()).findFirst()
-		    .ifPresent(System.out::println);
-
 		Collection<Person> persons = StreamSamples.getPersons();
-		List<Person> sortedByAge = persons.stream()
-		    .sorted(Comparator.comparingInt(Person::getAge))
+		List<String> uniqueFirstNames = persons.stream().map(Person::getFirstName).distinct()
 		    .collect(Collectors.toList());
-		System.out.println(sortedByAge);
+
+		System.out.println(uniqueFirstNames);
 	}
 }
