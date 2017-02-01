@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class DataStub {
 	public static List<String> getLines() {
-		return Arrays.asList("Line 1", "Ling 3 biggest", "Line 2 bigger",
+		return Arrays.asList("Line 1", "Line 2", "Ling 3 biggest", "Line 2 bigger",
 		    "Another biggest line ever in this", "I may write this");
 	}
 
