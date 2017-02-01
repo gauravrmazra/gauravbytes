@@ -25,7 +25,7 @@ public class SupplierExample {
 		}
 
 		public String asJson() {
-			return "{\"message\" : " + message + "}";
+			return "{\"message\" : \"" + message + "\"}";
 		}
 	}
 
