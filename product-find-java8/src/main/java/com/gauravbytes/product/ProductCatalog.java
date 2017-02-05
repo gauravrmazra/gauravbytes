@@ -1,8 +1,9 @@
 package com.gauravbytes.product;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 	
 /**
  * 
@@ -16,7 +17,11 @@ public class ProductCatalog {
 		products.add(product);
 	}
 	
-	public Iterator<Product> iterator() {
-		return products.iterator();
+	private Stream<Product> getProductStream() {
+		return StreamSupport.stream(this.products.spliterator(), false);
+	}
+
+	public Stream<Product> stream() {
+		return products.stream();
 	}
 }

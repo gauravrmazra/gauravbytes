@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +47,7 @@ public class ProductSelectionTest {
 	@Test
 	public void testFindByID() {
 		String pid = "r187";
-		List<Product> foundProducts = productSearcher.byID(pid);
+		List<Product> foundProducts = productSearcher.selectBy(p -> p.getID() == pid);
 
 		assertEquals(1, foundProducts.size());
 
@@ -55,16 +56,19 @@ public class ProductSelectionTest {
 
 	@Test
 	public void testFindBySize() {
-		List<Product> foundProducts = productSearcher.bySize(Size.MEDIUM);
+		Predicate<Product> byMediumSize = p -> p.getSize() == Size.MEDIUM;
+		List<Product> foundProducts = productSearcher.selectBy(byMediumSize);
 		assertEquals(1, foundProducts.size());
 
-		foundProducts = productSearcher.bySize(Size.NOT_APPLICABLE);
+		Predicate<Product> bySizeNotApplicable = p -> p.getSize() == Size.NOT_APPLICABLE;
+		foundProducts = productSearcher.selectBy(bySizeNotApplicable);
 		assertEquals(2, foundProducts.size());
 	}
 
 	@Test
 	public void testFindByColor() {
-		List<Product> foundProducts = productSearcher.byColor(Color.RED);
+		Predicate<Product> byColor = p -> p.getColor() == Color.RED;
+		List<Product> foundProducts = productSearcher.selectBy(byColor);
 		assertEquals(2, foundProducts.size());
 
 		assertTrue(foundProducts.contains(railTrack));
@@ -74,7 +78,8 @@ public class ProductSelectionTest {
 
 	@Test
 	public void testFindByPrice() {
-		List<Product> foundProducts = productSearcher.byPrice(19.25d);
+		Predicate<Product> byPrice = p -> p.getPrice() == 19.25d;
+		List<Product> foundProducts = productSearcher.selectBy(byPrice);
 		assertEquals(1, foundProducts.size());
 		for (Iterator<Product> i = foundProducts.iterator(); i.hasNext();) {
 			Product p = (Product) i.next();
@@ -84,7 +89,8 @@ public class ProductSelectionTest {
 
 	@Test
 	public void testFindBelowPrice() {
-		List<Product> foundProducts = productSearcher.belowPrice(10.00f);
+		Predicate<Product> belowPrice = p -> p.getPrice() < 10.00d;
+		List<Product> foundProducts = productSearcher.selectBy(belowPrice);
 		assertEquals(3, foundProducts.size());
 		for (Iterator<Product> i = foundProducts.iterator(); i.hasNext();) {
 			Product p = (Product) i.next();
@@ -94,39 +100,51 @@ public class ProductSelectionTest {
 
 	@Test
 	public void testFindByColorAndBelowPrice() {
-		List<Product> foundProducts = productSearcher.byColorAndBelowPrice(Color.RED, 10.00d);
+		Predicate<Product> byColor = p -> p.getColor() == Color.RED;
+		Predicate<Product> belowPrice = p -> p.getPrice() < 10.00d;
+
+		List<Product> foundProducts = productSearcher.selectBy(byColor.and(belowPrice));
 		assertEquals(1, foundProducts.size());
 		assertEquals(railTrack, foundProducts.get(0));
 	}
 
 	@Test
 	public void testFindByColorSizeAndBelowPrice() {
-		List<Product> foundProducts = productSearcher.byColorSizeAndBelowPrice(Color.RED,
-		    Size.SMALL, 10.00d);
+		Predicate<Product> byColor = p -> p.getColor() == Color.RED;
+		Predicate<Product> bySize = p -> p.getSize() == Size.SMALL;
+		Predicate<Product> belowPrice = p -> p.getPrice() < 10.00d;
+
+		List<Product> foundProducts = productSearcher
+		    .selectBy(byColor.and(bySize).and(belowPrice));
 
 		assertEquals(0, foundProducts.size());
 
-		foundProducts = productSearcher.byColorSizeAndBelowPrice(Color.RED, Size.MEDIUM,
-		    10.00d);
+		Predicate<Product> byMediumSize = p -> p.getSize() == Size.MEDIUM;
+
+		foundProducts = productSearcher.selectBy(byColor.and(byMediumSize).and(belowPrice));
 
 		assertEquals(railTrack, foundProducts.get(0));
 	}
 
 	@Test
 	public void testFindByColorAndAbovePrice() {
-		List<Product> foundProducts = productSearcher.byColorAndAbovePrice(Color.WHITE,
-		    25.00d);
+		Predicate<Product> byColor = p -> p.getColor() == Color.WHITE;
+		Predicate<Product> abovePrice = p -> p.getPrice() > 25.00d;
+		List<Product> foundProducts = productSearcher.selectBy(byColor.and(abovePrice));
 		assertEquals(0, foundProducts.size());
 
-		foundProducts = productSearcher.byColorAndAbovePrice(Color.RED, 25.00d);
+		Predicate<Product> byRedColor = p -> p.getColor() == Color.RED;
+		foundProducts = productSearcher.selectBy(byRedColor.and(abovePrice));
 
 		assertEquals(toyCar, foundProducts.get(0));
 	}
 
 	@Test
 	public void testFindBelowPriceAvoidingAColor() {
-		List<Product> foundProducts = productSearcher.belowPriceAndNotColor(20.00d,
-		    Color.WHITE);
+		Predicate<Product> belowPrice = p -> p.getPrice() < 20.00d;
+		Predicate<Product> notColor = p -> p.getColor() != Color.WHITE;
+
+		List<Product> foundProducts = productSearcher.selectBy(belowPrice.and(notColor));
 		assertEquals(3, foundProducts.size());
 		assertTrue(foundProducts.contains(railTrack));
 	}

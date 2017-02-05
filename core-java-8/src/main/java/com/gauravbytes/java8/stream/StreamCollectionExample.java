@@ -1,5 +1,6 @@
 package com.gauravbytes.java8.stream;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.IntSummaryStatistics;
 import java.util.List;
@@ -17,6 +18,9 @@ import com.gauravbytes.java8.stream.StreamSamples.Person;
 public class StreamCollectionExample {
 	public static void main(String[] args) {
 		Collection<Person> persons = StreamSamples.getPersons();
+		List<String> names = new ArrayList<>();
+		persons.stream().map(Person::getFirstName).forEach(names::add)
+		;
 		List<String> firstNameOfPersons = persons.stream().map(Person::getFirstName)
 		    .collect(Collectors.toList());
 		System.out.println(firstNameOfPersons);

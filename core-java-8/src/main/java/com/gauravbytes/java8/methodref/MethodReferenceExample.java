@@ -15,16 +15,16 @@ public class MethodReferenceExample {
 	static class Job {
 		private String jobName;
 
-		public Job (String jobName) {
+		public Job(String jobName) {
 			this.jobName = jobName;
 		}
-		
+
 		@Override
 		public String toString() {
 			return "[job: " + jobName + "]";
 		}
 	}
-	
+
 	static class User {
 		private String firstName;
 		private String lastName;
@@ -92,13 +92,12 @@ public class MethodReferenceExample {
 		private String firstName;
 		private String lastName;
 		private int age;
-		
+
 		Employee(String firstName, String lastName, int age) {
 			this.firstName = firstName;
 			this.lastName = lastName;
 		}
-		
-		
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -135,10 +134,11 @@ public class MethodReferenceExample {
 
 		@Override
 		public String toString() {
-			return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+			return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", age="
+			    + age + "]";
 		}
 	}
-	
+
 	public static int compareByAge(Employee first, Employee second) {
 		return Integer.compare(first.age, second.age);
 	}
@@ -149,26 +149,30 @@ public class MethodReferenceExample {
 		instanceMethodReference();
 		constructorReference();
 	}
-	
+
 	private static void staticMethodReference() {
 		System.err.println("static method reference");
 		Comparator<Employee> ageComparator = MethodReferenceExample::compareByAge;
 
-		//above is equivalent to below one
-		//Comparator<Employee> ageComparator2 = (first, second) -> MethodReferenceExample.compareByAge(first, second);
-		List<Employee> employees = Arrays.asList(new Employee("Gaurav", "Mazra", 27), new Employee("Mohan", "Sharma", 29), new Employee("Gurpreet", "Singh", 24));
+		Comparator<Employee> aC = (Employee e1, Employee e2) -> MethodReferenceExample
+		    .compareByAge(e1, e2);
+		// above is equivalent to below one
+		// Comparator<Employee> ageComparator2 = (first, second) ->
+		// MethodReferenceExample.compareByAge(first, second);
+		List<Employee> employees = Arrays.asList(new Employee("Gaurav", "Mazra", 27),
+		    new Employee("Mohan", "Sharma", 29), new Employee("Gurpreet", "Singh", 24));
 		System.out.println(employees);
-		
+
 		Collections.sort(employees, ageComparator);
 		System.out.println(employees);
 	}
-	
+
 	private static void constructorReference() {
 		System.err.println("Constructor reference");
 		Function<String, Job> jobCreator = Job::new;
-		// this is equivalent to 
-		//Function<String, Job> jobCreator2 = (jobName) -> new Job(jobName);
-		
+		// this is equivalent to
+		// Function<String, Job> jobCreator2 = (jobName) -> new Job(jobName);
+
 		System.out.println(jobCreator.apply("Create a new task"));
 	}
 
@@ -176,10 +180,14 @@ public class MethodReferenceExample {
 		System.err.println("Instance method reference of ArbitraryObject");
 		Comparator<String> stringIgnoreCase = String::compareToIgnoreCase;
 		// this is equivalent to below
-		//Comparator<String> stringIgnoreCase2 = (first, second) -> first.compareToIgnoreCase(second);
+		Comparator<String> stringIgnoreCase2 = (first, second) -> first
+		    .compareToIgnoreCase(second);
+
+		Comparator<String> reverseOrder = stringIgnoreCase.reversed();
+
 		List<String> values = Arrays.asList("Gaurav", "Sunil", "Anil", "Rajesh", "sajjad");
 		System.out.println(values);
-		
+
 		Collections.sort(values, stringIgnoreCase);
 		System.out.println(values);
 	}
