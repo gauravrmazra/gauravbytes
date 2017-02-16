@@ -5,7 +5,11 @@ server:
     workerThreads: 150
     accesslog: 
       enabled: true
+  compression: 
+    enabled: true
+    mimeTypes: text/xml, text/css, text/html, application/json
+    minResponseSize: 4096
 
 spring:
   application: 
-    name: spring-e-s
+    name: gaurav-bytes-embedded-server-example
