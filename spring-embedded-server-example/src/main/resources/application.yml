@@ -1,5 +1,10 @@
 server:
   port: 8082
+  undertow: 
+    ioThreads: 15
+    workerThreads: 150
+    accesslog: 
+      enabled: true
 
 spring:
   application: 
