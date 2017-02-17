@@ -16,7 +16,7 @@ public class AppStartupRunner implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		logger.info("Your application started with non-option args : {}", args.getNonOptionArgs());
+		logger.info("Your application started with option names : {}", args.getOptionNames());
 	}
 
 }
