@@ -54,7 +54,7 @@ public class BookController {
 	@Path("/{oid}")
 	public Response updateBook(@PathParam("oid") String oid, Book book) {
 		bookService.updateBook(oid, book);
-		return Response.ok().build();
+		return Response.noContent().build();
 	}
 	
 	@DELETE
