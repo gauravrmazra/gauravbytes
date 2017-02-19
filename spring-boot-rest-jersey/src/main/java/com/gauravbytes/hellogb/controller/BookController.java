@@ -22,25 +22,24 @@ import com.gauravbytes.hellogb.service.BookService;
 @Path("/books")
 public class BookController {
 	private BookService bookService;
-	
-	
+
 	public BookController(BookService bookService) {
 		this.bookService = bookService;
 	}
-	
+
 	@GET
 	@Produces("application/json")
 	public Collection<Book> getAllBooks() {
 		return bookService.getAllBooks();
 	}
-	
+
 	@GET
 	@Produces("application/json")
 	@Path("/{oid}")
 	public Book getBook(@PathParam("oid") String oid) {
 		return bookService.getBook(oid);
 	}
-	
+
 	@POST
 	@Produces("application/json")
 	@Consumes("application/json")
@@ -48,7 +47,7 @@ public class BookController {
 		bookService.addBook(book);
 		return Response.created(URI.create("/" + book.getOid())).build();
 	}
-	
+
 	@PUT
 	@Consumes("application/json")
 	@Path("/{oid}")
@@ -56,7 +55,7 @@ public class BookController {
 		bookService.updateBook(oid, book);
 		return Response.noContent().build();
 	}
-	
+
 	@DELETE
 	@Path("/{oid}")
 	public Response deleteBook(@PathParam("oid") String oid) {
