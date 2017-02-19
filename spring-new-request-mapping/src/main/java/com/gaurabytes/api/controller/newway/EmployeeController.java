@@ -1,6 +1,6 @@
 package com.gaurabytes.api.controller.newway;
 
-import java.util.Collections;
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -27,7 +27,7 @@ public class EmployeeController {
 
 	@GetMapping
 	public ResponseEntity<List<Employee>> getAll() {
-		return ResponseEntity.ok(Collections.emptyList());
+		return ResponseEntity.ok(EmployeeStub.getAll());
 	}
 
 	@GetMapping("/{employeeId}")
@@ -37,16 +37,19 @@ public class EmployeeController {
 
 	@PostMapping
 	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
-		return ResponseEntity.ok(EmployeeStub.addEmployee(employee));
+		EmployeeStub.addEmployee(employee);
+		return ResponseEntity.created(URI.create("/" + employee.getId())).build();
 	}
 
 	@PutMapping
 	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
-		return ResponseEntity.ok(EmployeeStub.updateEmployee(employee));
+		EmployeeStub.updateEmployee(employee);
+		return ResponseEntity.noContent().build();
 	}
 
 	@DeleteMapping(path = "/{employeeId}")
-	public ResponseEntity<Employee> deleteEmployee(@PathVariable Long employeeId) {
-		return ResponseEntity.ok(EmployeeStub.deleteEmployee(employeeId));
+	public ResponseEntity<String> deleteEmployee(@PathVariable Long employeeId) {
+		EmployeeStub.deleteEmployee(employeeId);
+		return ResponseEntity.ok("DELETED");
 	}
 }
