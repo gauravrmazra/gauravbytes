@@ -1,5 +1,6 @@
 package com.gauravbytes.hellogb;
 
+import javax.annotation.PostConstruct;
 import javax.ws.rs.ApplicationPath;
 
 import org.glassfish.jersey.server.ResourceConfig;
@@ -16,6 +17,11 @@ import com.gauravbytes.hellogb.controller.BookController;
 @ApplicationPath("rest")
 public class JerseyConfiguration extends ResourceConfig {
 	public JerseyConfiguration() {
+		
+	}
+	
+	@PostConstruct
+	public void setUp() {
 		register(BookController.class);
 		register(GenericExceptionMapper.class);
 	}
