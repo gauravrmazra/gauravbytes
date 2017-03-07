@@ -17,11 +17,3 @@ spring:
     name: productdb
   application: 
     name: gaurav-bytes-rest-jpa
-
-security: 
-  basic: 
-    enabled: true
-    realm: gaurav-bytes
-  user: 
-    name: gaurav
-    password: bytes
