@@ -1,7 +1,5 @@
 server:
   port: 8082
-  jpa:
-    generate-ddl: true
   undertow: 
     ioThreads: 15
     workerThreads: 150
