@@ -1,4 +1,4 @@
-package com.gauravbytes.hellgb;
+package com.gauravbytes.hellogb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -42,7 +42,7 @@ public class App {
 		DigestAuthenticationEntryPoint digestAuthenticationEntry = new DigestAuthenticationEntryPoint();
 		digestAuthenticationEntry.setRealmName("GAURAVBYTES.COM");
 		digestAuthenticationEntry.setKey("GRM");
-		digestAuthenticationEntry.setNonceValiditySeconds(10);
+		digestAuthenticationEntry.setNonceValiditySeconds(60);
 		return digestAuthenticationEntry;
 	}
 	

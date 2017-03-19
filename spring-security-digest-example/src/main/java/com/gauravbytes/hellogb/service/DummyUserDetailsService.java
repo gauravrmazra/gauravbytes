@@ -1,4 +1,4 @@
-package com.gauravbytes.hellgb.service;
+package com.gauravbytes.hellogb.service;
 
 import java.util.Collections;
 
