@@ -1,0 +1,176 @@
+<html>
+<head>
+<title>Spring Boot AngularJS example</title>
+<style>
+.username.ng-valid {
+	background-color: #dff0d8;
+}
+
+.username.ng-dirty.ng-invalid-required {
+	background-color: #f2dede;
+}
+
+.username.ng-dirty.ng-invalid-minlength {
+	background-color: #fcf8e3;
+}
+
+.email.ng-valid {
+	background-color: #dff0d8;
+}
+
+.email.ng-dirty.ng-invalid-required {
+	background-color: #f2dede;
+}
+
+.email.ng-dirty.ng-invalid-email {
+	background-color: #fcf8e3;
+}
+
+body, #mainWrapper {
+	height: 70%;
+	background-color: rgb(245, 245, 245);
+}
+
+body, .form-control {
+	font-size: 12px !important;
+}
+
+.floatRight {
+	float: right;
+	margin-right: 18px;
+}
+
+.has-error {
+	color: #a94442;
+}
+
+.form-container {
+	padding: 20px;
+}
+
+.generic-container {
+	width: 80%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #EAE7E7;
+	border-radius: 4px;
+}
+
+</style>
+<link rel="stylesheet"
+	href="./bower_components/bootstrap-css-only/css/bootstrap.min.css">
+</head>
+<body ng-app="myApp" class="ng-cloak">
+	<div class="generic-container" ng-controller="UserController as ctrl">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span class="lead">User Registration Form </span>
+			</div>
+			<div class="form-container">
+				<form ng-submit="ctrl.submit()" name="myForm"
+					class="form-horizontal">
+					<input type="hidden" ng-model="ctrl.user.id" />
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="file">Name</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="ctrl.user.username" name="uname"
+									class="username form-control input-sm"
+									placeholder="Enter your name" required ng-minlength="3" />
+								<div class="has-error" ng-show="myForm.$dirty">
+									<span ng-show="myForm.uname.$error.required">This is a
+										required field</span> <span ng-show="myForm.uname.$error.minlength">Minimum
+										length required is 3</span> <span ng-show="myForm.uname.$invalid">This
+										field is invalid </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="file">Address</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="ctrl.user.address"
+									class="form-control input-sm"
+									placeholder="Enter your Address. [This field is validation free]" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="file">Email</label>
+							<div class="col-md-7">
+								<input type="email" ng-model="ctrl.user.email" name="email"
+									class="email form-control input-sm"
+									placeholder="Enter your Email" required />
+								<div class="has-error" ng-show="myForm.$dirty">
+									<span ng-show="myForm.email.$error.required">This is a
+										required field</span> <span ng-show="myForm.email.$invalid">This
+										field is invalid </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-actions floatRight">
+							<input type="submit" value="{{!ctrl.user.id ? 'Add' : 'Update'}}"
+								class="btn btn-success btn-sm" ng-disabled="myForm.$invalid">
+							<button type="button" ng-click="ctrl.reset()"
+								class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset
+								Form</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">
+				<span class="lead">List of Users </span>
+			</div>
+			<div class="table-container">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID.</th>
+							<th>Name</th>
+							<th>Address</th>
+							<th>Email</th>
+							<th width="20%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="u in ctrl.users">
+							<td><span ng-bind="u.id"></span></td>
+							<td><span ng-bind="u.username"></span></td>
+							<td><span ng-bind="u.address"></span></td>
+							<td><span ng-bind="u.email"></span></td>
+							<td>
+								<button type="button" ng-click="ctrl.edit(u.id)"
+									class="btn btn-primary">Edit</button>
+								<button type="button" ng-click="ctrl.remove(u.id)"
+									class="btn btn-danger">Remove</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="./bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript"
+		src="./bower_components/angular-resource/angular-resource.min.js"></script>
+	<script type="text/javascript"
+		src="./bower_components/lodash/dist/lodash.min.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+	<script type="text/javascript" src="./js/controller/user_controller.js"></script>
+	<script type="text/javascript" src="./js/service/user_service.js"></script>
+	s
+</body>
+</html>
