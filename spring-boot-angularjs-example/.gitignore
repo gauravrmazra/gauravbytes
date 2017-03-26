@@ -1,0 +1,6 @@
+/target/
+/src/main/resources/static/bower_components/
+/logs/
+.classpath
+.project
+/.settings/
