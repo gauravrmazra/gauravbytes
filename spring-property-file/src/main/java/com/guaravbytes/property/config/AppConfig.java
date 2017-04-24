@@ -14,7 +14,7 @@ import org.springframework.core.io.ClassPathResource;
 public class AppConfig {
 
 	@Bean
-	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+	public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
 		propertySourcesPlaceholderConfigurer.setLocations(new ClassPathResource("application-db.properties"));
 		//propertySourcesPlaceholderConfigurer.setIgnoreUnresolvablePlaceholders(true);
