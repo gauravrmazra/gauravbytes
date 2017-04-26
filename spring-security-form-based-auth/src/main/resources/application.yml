@@ -11,9 +11,15 @@ server:
     minResponseSize: 4096
 
 spring: 
+  thymeleaf: 
+    prefix: classpath:/static/
   application: 
     name: spring-security-form-based-auth
 
 security: 
   basic: 
     enabled: false
+
+logging: 
+  level: 
+    root: INFO

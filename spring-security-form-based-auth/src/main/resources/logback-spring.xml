@@ -4,7 +4,7 @@
     <property name="LOG_ARCHIVE" value="${LOG_PATH}/archive" />
     <timestamp key="timestamp-by-second" datePattern="yyyyMMdd'T'HHmmss"/>
     <appender name="RollingFile-Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/digest-logs.log</file>
+        <file>${LOG_PATH}/app-logs.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_ARCHIVE}/app-logs.log%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
