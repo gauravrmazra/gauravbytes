@@ -47,7 +47,7 @@ public class UserController {
 
 		return ResponseEntity.ok(users);
 	}
-
+	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUser(@PathVariable("id") long id) {
 		logger.info("Fetching User with id : {} ", id);

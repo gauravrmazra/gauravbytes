@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <title>Spring Boot AngularJS example</title>
 <style>
@@ -58,9 +59,18 @@ body, .form-control {
 
 </style>
 <link rel="stylesheet"
-	href="./bower_components/bootstrap-css-only/css/bootstrap.min.css">
+	href="./bower_components/bootstrap-css-only/css/bootstrap.min.css"></link>
 </head>
 <body ng-app="myApp" class="ng-cloak">
+<div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+            Logged in user: <span sec:authentication="name"></span> |
+            Roles: <span sec:authentication="principal.authorities"></span>
+            <div>
+                <form  th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout" />
+                </form>
+            </div>
+        </div>
 	<div class="generic-container" ng-controller="UserController as ctrl">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -69,14 +79,14 @@ body, .form-control {
 			<div class="form-container">
 				<form ng-submit="ctrl.submit()" name="myForm"
 					class="form-horizontal">
-					<input type="hidden" ng-model="ctrl.user.id" />
+					<input type="hidden" ng-model="ctrl.user.id"></input>
 					<div class="row">
 						<div class="form-group col-md-12">
 							<label class="col-md-2 control-lable" for="file">Name</label>
 							<div class="col-md-7">
 								<input type="text" ng-model="ctrl.user.username" name="uname"
 									class="username form-control input-sm"
-									placeholder="Enter your name" required ng-minlength="3" />
+									placeholder="Enter your name" required="true" ng-minlength="3"></input>
 								<div class="has-error" ng-show="myForm.$dirty">
 									<span ng-show="myForm.uname.$error.required">This is a
 										required field</span> <span ng-show="myForm.uname.$error.minlength">Minimum
@@ -94,7 +104,7 @@ body, .form-control {
 							<div class="col-md-7">
 								<input type="text" ng-model="ctrl.user.address"
 									class="form-control input-sm"
-									placeholder="Enter your Address. [This field is validation free]" />
+									placeholder="Enter your Address. [This field is validation free]"></input>
 							</div>
 						</div>
 					</div>
@@ -105,7 +115,7 @@ body, .form-control {
 							<div class="col-md-7">
 								<input type="email" ng-model="ctrl.user.email" name="email"
 									class="email form-control input-sm"
-									placeholder="Enter your Email" required />
+									placeholder="Enter your Email" required="true"></input>
 								<div class="has-error" ng-show="myForm.$dirty">
 									<span ng-show="myForm.email.$error.required">This is a
 										required field</span> <span ng-show="myForm.email.$invalid">This
@@ -118,7 +128,7 @@ body, .form-control {
 					<div class="row">
 						<div class="form-actions floatRight">
 							<input type="submit" value="{{!ctrl.user.id ? 'Add' : 'Update'}}"
-								class="btn btn-success btn-sm" ng-disabled="myForm.$invalid">
+								class="btn btn-success btn-sm" ng-disabled="myForm.$invalid"></input>
 							<button type="button" ng-click="ctrl.reset()"
 								class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset
 								Form</button>
