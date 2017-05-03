@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <title>Spring Boot AngularJS example</title>
 <style>
@@ -56,22 +58,26 @@ body, .form-control {
 	background-color: #EAE7E7;
 	border-radius: 4px;
 }
-
 </style>
 <link rel="stylesheet"
 	href="./bower_components/bootstrap-css-only/css/bootstrap.min.css"></link>
 </head>
 <body ng-app="myApp" class="ng-cloak">
-<div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
-            Logged in user: <span sec:authentication="name"></span> |
-            Roles: <span sec:authentication="principal.authorities"></span>
-            <div>
-                <form  th:action="@{/logout}" method="post">
-                    <input type="submit" value="Logout" />
-                </form>
-            </div>
-        </div>
 	<div class="generic-container" ng-controller="UserController as ctrl">
+		<div th:fragment="logout" class="logout"
+			sec:authorize="isAuthenticated()">
+			<div class="row">
+				<div class="col-md-6">
+					Logged in user: <span sec:authentication="name"></span> | Roles: <span
+						sec:authentication="principal.authorities"></span>
+				</div>
+				<div class="col-md-6">
+					<form th:action="@{/logout}" method="post">
+						<input type="submit" value="Logout" class="btn btn-default" />
+					</form>
+				</div>
+			</div>
+		</div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<span class="lead">User Registration Form </span>

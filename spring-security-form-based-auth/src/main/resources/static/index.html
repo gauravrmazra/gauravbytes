@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Welcome to Gaurav Bytes: Spring Security</title>
-        <meta charset="utf-8" />
-    </head>
-    <body>
-        <h1>Welcome to <a th:href="http://www.gauravbytes.com">GauravBytes</a></h1>
-        <ul>
-            <li>Go to the <a href="/viewUsers" th:href="@{/viewUsers}">View Users</a></li>
-        </ul>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Welcome to Gaurav Bytes: Spring Security</title>
+<meta charset="utf-8" />
+<link rel="stylesheet"
+	href="./bower_components/bootstrap-css-only/css/bootstrap.min.css"></link>
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Welcome to GauravBytes.COM</h1>
+			<p>
+				Go to the <a href="/viewUsers" th:href="@{/viewUsers}">View
+					Users</a>
+			</p>
+		</div>
+	</div>
+</body>
 </html>
