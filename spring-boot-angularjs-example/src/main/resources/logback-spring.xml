@@ -8,7 +8,7 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_ARCHIVE}/boot-angularjs.log%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
-            <totalSizeCap>1KB</totalSizeCap>
+            <totalSizeCap>1MB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <pattern>%-30(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{32} - %msg%n</pattern>
