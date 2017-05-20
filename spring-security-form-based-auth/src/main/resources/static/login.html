@@ -27,9 +27,9 @@ float: right;
 <body>
 	<div class="generic-container">
 		<div class="form-container">
-			<div th:if="${param.error}" class="alert">Invalid username or
+			<div th:if="${param.error}" class="alert alert-danger">Invalid username or
 				password.</div>
-			<div th:if="${param.logout}" class="alert">You have been logged
+			<div th:if="${param.logout}" class="alert alert-info">You have been logged
 				out.</div>
 			<form th:action="@{/login}" method="post">
 				<div class="row">
