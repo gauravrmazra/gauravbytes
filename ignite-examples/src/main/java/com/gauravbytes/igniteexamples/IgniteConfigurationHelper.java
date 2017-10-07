@@ -20,6 +20,7 @@ public class IgniteConfigurationHelper {
 	public static IgniteConfiguration helloworldConfiguration() {
 		int cpus = Runtime.getRuntime().availableProcessors();
 		IgniteConfiguration cfg = new IgniteConfiguration();
+		cfg.setIgniteInstanceName("hello-world");
 		cfg.setClientMode(true);
 		cfg.setPeerClassLoadingEnabled(true);
 		cfg.setDeploymentMode(DeploymentMode.CONTINUOUS);
@@ -41,7 +42,7 @@ public class IgniteConfigurationHelper {
 
 	private static TcpDiscoveryIpFinder multicastIpFinder() {
 		TcpDiscoveryMulticastIpFinder ipFinder = new TcpDiscoveryMulticastIpFinder();
-		ipFinder.setAddresses(Collections.singletonList(""));
+		ipFinder.setAddresses(Collections.singletonList("localhost:47500"));
 		return ipFinder;
 	}
 
