@@ -14,13 +14,14 @@ import org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMultic
 /**
  * A helper class containing different type of configurations
  * @author Gaurav Rai Mazra
- *
+ * {@link https://lineofcode.in}
+ * 
  */
 public class IgniteConfigurationHelper {
-	public static IgniteConfiguration helloworldConfiguration() {
+	public static IgniteConfiguration defaultIgniteCfg(String igniteInstanceName) {
 		int cpus = Runtime.getRuntime().availableProcessors();
 		IgniteConfiguration cfg = new IgniteConfiguration();
-		cfg.setIgniteInstanceName("hello-world");
+		cfg.setIgniteInstanceName(igniteInstanceName);
 		cfg.setClientMode(true);
 		cfg.setPeerClassLoadingEnabled(true);
 		cfg.setDeploymentMode(DeploymentMode.CONTINUOUS);
