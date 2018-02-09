@@ -60,7 +60,7 @@ public class IgniteComputerGrid2Example {
 							}
 							return names;
 						}
-					}).forEach(System.out::println);;
+					}).forEach(System.out::println);
 		}
 	}
 }
