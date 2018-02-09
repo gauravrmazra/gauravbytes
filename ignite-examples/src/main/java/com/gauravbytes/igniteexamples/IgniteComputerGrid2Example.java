@@ -39,8 +39,6 @@ public class IgniteComputerGrid2Example {
 
 						@Override
 						public List<String> call() throws Exception {
-							System.out.println(Objects.isNull(currentIgniteInstance) ? "Null ignite instance"
-									: "Not null ignite instance");
 							List<String> names = new ArrayList<>();
 							IgniteCache<BinaryObject, BinaryObject> personCache = currentIgniteInstance
 									.cache("SQL_PUBLIC_PERSON").withKeepBinary();
@@ -53,7 +51,7 @@ public class IgniteComputerGrid2Example {
 
 							try (QueryCursor<Entry<BinaryObject, BinaryObject>> cursor = personCache.query(query)) {
 								Iterator<Entry<BinaryObject, BinaryObject>> itr = cursor.iterator();
-								// just read the first element
+
 								while (itr.hasNext()) {
 									Entry<BinaryObject, BinaryObject> cache = itr.next();
 									names.add(cache.getValue().<String>field("NAME"));
