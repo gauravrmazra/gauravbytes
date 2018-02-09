@@ -30,7 +30,7 @@ public class IgniteComputerGrid2Example {
 		try (Ignite ignite = Ignition.start(defaultIgniteCfg("cache-reading-compute-engine"))) {
 			long cityId = 1;
 
-			List<String> names = ignite.compute().affinityCall("SQL_PUBLIC_CITY", cityId,
+			ignite.compute().affinityCall("SQL_PUBLIC_CITY", cityId,
 					new IgniteCallable<List<String>>() {
 						private static final long serialVersionUID = -131151815825938052L;
 
@@ -62,9 +62,7 @@ public class IgniteComputerGrid2Example {
 							}
 							return names;
 						}
-					});
-
-			System.out.println(names);
+					}).forEach(System.out::println);;
 		}
 	}
 }
