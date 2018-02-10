@@ -9,6 +9,11 @@ import org.apache.ignite.Ignition;
 import org.apache.ignite.services.Service;
 import org.apache.ignite.services.ServiceContext;
 
+/**
+ * 
+ * @author Gaurav Rai Mazra {@link https://lineofcode.in}
+ *
+ */
 public class IgniteServiceGridExample {
 	interface TimeService extends Service {
 		public LocalDateTime currentDateTime();
@@ -40,9 +45,9 @@ public class IgniteServiceGridExample {
 	
 	public static void main(String[] args) {
 		try (Ignite ignite = Ignition.start(defaultIgniteCfg("ignite-service-grid"))) {
-			ignite.services().deployClusterSingleton("timeServiceImpl", new TimeServiceImpl());
+			ignite.services().deployClusterSingleton("TimeServiceImpl", new TimeServiceImpl());
 			
-			TimeService timeService = ignite.services().service("timeServiceImpl");
+			TimeService timeService = ignite.services().serviceProxy("TimeServiceImpl", TimeService.class, false);
 			
 			System.out.println("Current time is: " + timeService.currentDateTime());
 		}

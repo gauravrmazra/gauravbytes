@@ -5,7 +5,6 @@ import static com.gauravbytes.igniteexamples.IgniteConfigurationHelper.defaultIg
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 import javax.cache.Cache.Entry;
 
@@ -30,37 +29,36 @@ public class IgniteComputerGrid2Example {
 		try (Ignite ignite = Ignition.start(defaultIgniteCfg("cache-reading-compute-engine"))) {
 			long cityId = 1;
 
-			ignite.compute().affinityCall("SQL_PUBLIC_CITY", cityId,
-					new IgniteCallable<List<String>>() {
-						private static final long serialVersionUID = -131151815825938052L;
+			ignite.compute().affinityCall("SQL_PUBLIC_CITY", cityId, new IgniteCallable<List<String>>() {
+				private static final long serialVersionUID = -131151815825938052L;
 
-						@IgniteInstanceResource
-						private Ignite currentIgniteInstance;
+				@IgniteInstanceResource
+				private Ignite currentIgniteInstance;
 
-						@Override
-						public List<String> call() throws Exception {
-							List<String> names = new ArrayList<>();
-							IgniteCache<BinaryObject, BinaryObject> personCache = currentIgniteInstance
-									.cache("SQL_PUBLIC_PERSON").withKeepBinary();
-							
-							IgniteBiPredicate<BinaryObject, BinaryObject> filter = (BinaryObject key, BinaryObject value) -> {
-								return key.hasField("CITY_ID") && key.<Long>field("CITY_ID") == cityId;
-							};
+				@Override
+				public List<String> call() throws Exception {
+					List<String> names = new ArrayList<>();
+					IgniteCache<BinaryObject, BinaryObject> personCache = currentIgniteInstance
+							.cache("SQL_PUBLIC_PERSON").withKeepBinary();
 
-							ScanQuery<BinaryObject, BinaryObject> query = new ScanQuery<>(filter);
+					IgniteBiPredicate<BinaryObject, BinaryObject> filter = (BinaryObject key, BinaryObject value) -> {
+						return key.hasField("CITY_ID") && key.<Long>field("CITY_ID") == cityId;
+					};
 
-							try (QueryCursor<Entry<BinaryObject, BinaryObject>> cursor = personCache.query(query)) {
-								Iterator<Entry<BinaryObject, BinaryObject>> itr = cursor.iterator();
+					ScanQuery<BinaryObject, BinaryObject> query = new ScanQuery<>(filter);
 
-								while (itr.hasNext()) {
-									Entry<BinaryObject, BinaryObject> cache = itr.next();
-									names.add(cache.getValue().<String>field("NAME"));
-								}
+					try (QueryCursor<Entry<BinaryObject, BinaryObject>> cursor = personCache.query(query)) {
+						Iterator<Entry<BinaryObject, BinaryObject>> itr = cursor.iterator();
 
-							}
-							return names;
+						while (itr.hasNext()) {
+							Entry<BinaryObject, BinaryObject> cache = itr.next();
+							names.add(cache.getValue().<String>field("NAME"));
 						}
-					}).forEach(System.out::println);
+
+					}
+					return names;
+				}
+			}).forEach(System.out::println);
 		}
 	}
 }
