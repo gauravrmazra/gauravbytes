@@ -26,11 +26,4 @@ public class BinarySearch {
 		
 		return -1;
 	}
-
-	public static void main(String[] args) {
-		int[] arr = { 1, 1, 8, 9, 9, 9, 10, 31, 33, 50, 61 };
-		int elementToSearch = 99;
-
-		System.out.println("Element found at index: " + new BinarySearch().search(arr, elementToSearch));
-	}
 }
