@@ -23,6 +23,15 @@ public class ArraySearch {
 		logger.info(() -> String.format("BinarySearch ::>> Element found at index: %d",
 				new BinarySearch().search(arr, elementToSearch)));
 
+		logger.info(() -> String.format("NonRecursiveBinarySearch ::>> Element found at index: %d",
+				new NonRecursiveBinarySearch().search(arr, elementToSearch)));
+
+		logger.info(() -> String.format("InterpolationSearch ::>> Element found at index: %d",
+				new InterpolationSearch().search(arr, elementToSearch)));
+
+		logger.info(() -> String.format("NonRecursiveInterpolationSearch ::>> Element found at index: %d",
+				new NonRecursiveInterpolationSearch().search(arr, elementToSearch)));
+
 		logger.info(() -> String.format("LinearSearch ::>> Element found at index: %d",
 				new LinearSearch().search(arr, elementToSearch)));
 	}

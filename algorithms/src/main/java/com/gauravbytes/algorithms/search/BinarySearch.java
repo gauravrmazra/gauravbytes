@@ -3,24 +3,28 @@ package com.gauravbytes.algorithms.search;
 /**
  * 
  * @author Gaurav Rai Mazra
- * {@linkplain https://lineofcode.in}
- *
+ *	{@linkplain https://lineofcode.in}
+ *  {@linkplain https://gauravbytes.com}
  */
 public class BinarySearch {
 	public int search(final int[] arr, final int elementToSearch) {
 		return binarySearch(arr, 0, arr.length - 1, elementToSearch);
 	}
 	
-	private int binarySearch(final int[] arr, final int start, final int last, final int elementToSearch) {
-		if (last > start) {
-			int mid = start + (last - start) / 2;
+	protected int pos(int[] arr, int lo, int hi, int elementToSearch) {
+		return lo + (hi - lo) / 2;
+	}
+	
+	int binarySearch(final int[] arr, final int lo, final int hi, final int elementToSearch) {
+		if (hi > lo) {
+			int mid = pos(arr, lo, hi, elementToSearch);
 			
 			if(elementToSearch == arr[mid])
 				return mid;
 			else if (elementToSearch < arr[mid])
-				return binarySearch(arr, start, mid - 1, elementToSearch);
+				return binarySearch(arr, lo, mid - 1, elementToSearch);
 			else 
-				return binarySearch(arr, mid + 1, last, elementToSearch);
+				return binarySearch(arr, mid + 1, hi, elementToSearch);
 		}
 		
 		
