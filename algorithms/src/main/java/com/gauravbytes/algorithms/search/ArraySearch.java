@@ -34,5 +34,8 @@ public class ArraySearch {
 
 		logger.info(() -> String.format("LinearSearch ::>> Element found at index: %d",
 				new LinearSearch().search(arr, elementToSearch)));
+		
+		logger.info(() -> String.format("ExponentialSearch ::>> Element found at index: %d",
+				new ExponentialSearch().search(arr, elementToSearch)));
 	}
 }

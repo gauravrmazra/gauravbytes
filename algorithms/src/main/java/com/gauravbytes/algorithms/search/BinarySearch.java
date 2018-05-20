@@ -6,7 +6,9 @@ package com.gauravbytes.algorithms.search;
  *	{@linkplain https://lineofcode.in}
  *  {@linkplain https://gauravbytes.com}
  */
-public class BinarySearch {
+public class BinarySearch implements Search {
+	
+	@Override
 	public int search(final int[] arr, final int elementToSearch) {
 		return binarySearch(arr, 0, arr.length - 1, elementToSearch);
 	}
