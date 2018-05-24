@@ -27,11 +27,11 @@ public class IterativeArrayFlatner implements ArrayFlatner<Object> {
 		return flattened.toArray();
 	}
 
-	static class ArrayHolder implements Iterator<Object> {
+	static class ArrayIterator implements Iterator<Object> {
 		private final Object[] elements;
 		private int index = -1;
 
-		public ArrayHolder(final Object[] elements) {
+		public ArrayIterator(final Object[] elements) {
 			this.elements = elements;
 		}
 
@@ -50,14 +50,15 @@ public class IterativeArrayFlatner implements ArrayFlatner<Object> {
 	}
 
 	
-	private static boolean hasNext(ArrayHolder current) {
+	private static boolean hasNext(Iterator<Object> current) {
 		return Objects.nonNull(current) && current.hasNext();
 	}
+	
 	private void flat(Object[] elements, List<Object> flattened) {
-		Deque<ArrayHolder> stack = new LinkedList<>();
-		stack.push(new ArrayHolder(elements));
+		Deque<Iterator<Object>> stack = new LinkedList<>();
+		stack.push(new ArrayIterator(elements));
 
-		ArrayHolder current = null;
+		Iterator<Object> current = null;
 		while (hasNext(current)
 				|| (!stack.isEmpty() && hasNext(current = stack.pop()))) {
 			Object element = current.next();
@@ -65,7 +66,7 @@ public class IterativeArrayFlatner implements ArrayFlatner<Object> {
 			if (Objects.nonNull(element) && element.getClass().isArray()) {
 				Object[] e = (Object[]) element;
 				stack.push(current);
-				stack.push(new ArrayHolder(e));
+				stack.push(new ArrayIterator(e));
 				current = null;
 			} else {
 				flattened.add(element);
