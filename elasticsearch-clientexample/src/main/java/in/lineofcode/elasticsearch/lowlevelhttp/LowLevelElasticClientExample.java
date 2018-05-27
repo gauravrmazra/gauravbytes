@@ -4,6 +4,8 @@ import static in.lineofcode.elasticsearch.lowlevelhttp.LowlevelHttpClientUtils.c
 import static in.lineofcode.elasticsearch.lowlevelhttp.LowlevelHttpClientUtils.getJSONObjectFromResponse;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.http.StatusLine;
 import org.elasticsearch.client.Response;
@@ -17,20 +19,20 @@ import org.json.JSONObject;
  *
  */
 public class LowLevelElasticClientExample {
-
+	private static final Logger LOG = Logger.getLogger("LowLevelElasticClientExample");
 	public static void main(String[] args) {
 		try (RestClient client = createSimpleClient()) {
 			Response response = client.performRequest("GET", "/");
 			StatusLine statusLine = response.getStatusLine();
 			if (statusLine.getStatusCode() == 200) {
 				JSONObject obj = getJSONObjectFromResponse(response);
-				System.out.println(obj.toString(2));
+				LOG.info(() -> obj.toString(2));
 
 			} else {
-				System.err.println("Invalid response");
+				LOG.warning("Invalid response");
 			}
 		} catch (IOException io) {
-			System.err.println(io);
+			LOG.log(Level.SEVERE, "Exception occurred", io);
 		}
 	}
 }
