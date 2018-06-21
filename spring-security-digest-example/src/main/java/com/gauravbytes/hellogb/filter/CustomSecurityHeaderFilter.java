@@ -27,7 +27,7 @@ public class CustomSecurityHeaderFilter implements Filter {
 		String header = request.getHeader("Authorization");
 
 		if (header == null || !header.startsWith("Digest ")) {
-			response.sendError(401, "You are not authrorized");
+			response.sendError(400, "Authorization Header is missing.");
 		}
 		else {
 			chain.doFilter(request, response);
