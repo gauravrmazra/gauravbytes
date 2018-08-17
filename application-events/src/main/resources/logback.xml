@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+  <appender name="AppEvents" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${LOG_PATH}\AppEvents.log</File>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}\archive\AppEvents.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+    </rollingPolicy>
+  </appender>
+  
+  <appender name="GauravBytesLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${LOG_PATH}\GauravBytesLogs.log</File>
+    <encoder>
+      <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}\archive\GauravBytesLogs.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+    </rollingPolicy>
+  </appender>
+
+  <logger name="AppEvents" level="INFO" additivity="false">
+    <appender-ref ref="AppEvents"/>
+  </logger>
+  
+  <root level="INFO" additivity="false">
+    <appender-ref ref="GauravBytesLogs"/>
+  </root>
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+  </contextListener>
+</configuration>
