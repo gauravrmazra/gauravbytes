@@ -9,7 +9,8 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<slf4j.version>1.7.5</slf4j.version>
-        <logback.version>1.2.3</logback.version>
+		<logback.version>1.2.3</logback.version>
+		<json.version>20180130</json.version>
 	</properties>
 
 	<dependencies>
@@ -28,5 +29,11 @@
 			<artifactId>logback-core</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+
 	</dependencies>
 </project>

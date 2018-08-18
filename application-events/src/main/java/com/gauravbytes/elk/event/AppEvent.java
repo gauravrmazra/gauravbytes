@@ -85,10 +85,6 @@ public class AppEvent implements BaseEvent<AppEvent> {
 		return message;
 	}
 
-	public void emit(EventEmitter<AppEvent> emitter) {
-		emitter.emit(this);
-	}
-
 	@Override
 	public String toString() {
 		return "AppEvent [identifier=" + identifier + ", hostAddress=" + hostAddress + ", requestIP=" + requestIP

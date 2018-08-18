@@ -14,11 +14,12 @@ import org.slf4j.LoggerFactory;
  * @param <T> type of event
  */
 public class LoggerEventEmitter<T extends BaseEvent<T>> implements EventEmitter<T> {
-	private static final Logger logger = LoggerFactory.getLogger("AppEvents");
+	private final Logger logger;
 	private final Function<T, String> transformer;
 
-	public LoggerEventEmitter(final Function<T, String> transformer) {
+	public LoggerEventEmitter(final Function<T, String> transformer, String loggerName) {
 		this.transformer = transformer;
+		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
 	@Override
