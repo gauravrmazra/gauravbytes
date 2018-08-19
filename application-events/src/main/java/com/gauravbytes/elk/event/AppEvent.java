@@ -99,7 +99,7 @@ public class AppEvent implements BaseEvent<AppEvent> {
 
 	@Override
 	public boolean isErrorLevel() {
-		return Objects.nonNull(getThrowable());
+		return false;
 	}
 
 	@Override

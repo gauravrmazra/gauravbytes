@@ -3,7 +3,7 @@
   <appender name="AppEvents" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <File>${LOG_PATH}\AppEvents.log</File>
     <encoder>
-      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+      <pattern>[%d{yyyy-MM-dd HH:mm:ss}] %-5level %logger{36} - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <fileNamePattern>${LOG_PATH}\archive\AppEvents.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
