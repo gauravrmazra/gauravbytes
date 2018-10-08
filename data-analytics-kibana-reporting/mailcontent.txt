@@ -1,0 +1,6 @@
+Found {{payload.collector.length}} Events
+{{#payload.collector}}
+{{#.}}
+ip : {{ip}}, identifier: {{identifier}}, count: {{count}}
+{{/.}}
+{{/payload.collector}}

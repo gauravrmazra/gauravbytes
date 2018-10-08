@@ -1,0 +1,849 @@
+{
+  "took": 32,
+  "timed_out": false,
+  "_shards": {
+    "total": 151,
+    "successful": 151,
+    "skipped": 141,
+    "failed": 0
+  },
+  "hits": {
+    "total": 367,
+    "max_score": 0,
+    "hits": [
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "fm8vVGYB7vV8FyV_iUST",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 12894,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.367Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.367Z",
+            "eventType": "LOGIN_FAILURE",
+            "identifier": "1",
+            "requestIP": "192.168.4.4",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "gm8vVGYB7vV8FyV_iUST",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 13606,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.367Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.367Z",
+            "eventType": "LOGIN_FAILURE",
+            "identifier": "3",
+            "requestIP": "192.168.4.4",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "hostname": "GAURAV-PC",
+            "name": "GAURAV-PC",
+            "version": "6.2.3"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "nW8vVGYB7vV8FyV_iUST",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 33757,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.381Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.381Z",
+            "eventType": "LOGIN_SUCCESS",
+            "identifier": "3",
+            "requestIP": "192.168.1.1",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "om8vVGYB7vV8FyV_iUST",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 39594,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.385Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.385Z",
+            "eventType": "LOGIN_SUCCESS",
+            "identifier": "4",
+            "requestIP": "192.168.7.219",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "xm8vVGYB7vV8FyV_iUSU",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 75377,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.405Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.405Z",
+            "eventType": "LOGIN_FAILURE",
+            "identifier": "5",
+            "requestIP": "192.168.4.4",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "0W8vVGYB7vV8FyV_iUSg",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 9343,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.358Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.358Z",
+            "eventType": "LOGIN_FAILURE",
+            "identifier": "1",
+            "requestIP": "192.168.5.12",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "028vVGYB7vV8FyV_iUSg",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 10527,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.359Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.359Z",
+            "eventType": "LOGIN_FAILURE",
+            "identifier": "2",
+            "requestIP": "192.168.1.1",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "1W8vVGYB7vV8FyV_iUSg",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 11477,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.360Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.360Z",
+            "eventType": "LOGIN_FAILURE",
+            "identifier": "1",
+            "requestIP": "192.168.7.219",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "6W8vVGYB7vV8FyV_iUSg",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 28118,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.375Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.375Z",
+            "eventType": "LOGIN_FAILURE",
+            "identifier": "4",
+            "requestIP": "192.168.4.4",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      },
+      {
+        "_index": "app-events-2018.10.08",
+        "_type": "doc",
+        "_id": "7m8vVGYB7vV8FyV_iUSg",
+        "_score": 0,
+        "_source": {
+          "level": "INFO",
+          "loggerTime": "2018-10-08 20:24:14",
+          "offset": 32805,
+          "tags": [
+            "beats_input_codec_plain_applied"
+          ],
+          "prospector": {
+            "type": "log"
+          },
+          "source": """E:\logs\gaurav\AppEvents.log""",
+          "loggerName": "AppEvents",
+          "host": "GAURAV-PC",
+          "@version": "1",
+          "@timestamp": "2018-10-08T14:54:14.377Z",
+          "fields": {
+            "type": "appevents"
+          },
+          "appEvent": {
+            "eventTime": "2018-10-08T14:54:14.377Z",
+            "eventType": "LOGIN_SUCCESS",
+            "identifier": "2",
+            "requestIP": "192.168.5.12",
+            "apiName": "EmployeeApi",
+            "hostAddress": "localhost",
+            "message": "This is dummy message"
+          },
+          "type": "app-events",
+          "beat": {
+            "version": "6.2.3",
+            "name": "GAURAV-PC",
+            "hostname": "GAURAV-PC"
+          }
+        }
+      }
+    ]
+  },
+  "aggregations": {
+    "group_by_requestIP": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "192.168.4.4",
+          "doc_count": 88,
+          "group_by_identifier": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+              {
+                "key": "2",
+                "doc_count": 21,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 19,
+                  "buckets": [
+                    {
+                      "key": 1539010454551,
+                      "key_as_string": "2018-10-08T14:54:14.551Z",
+                      "doc_count": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "3",
+                "doc_count": 21,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 20,
+                  "buckets": [
+                    {
+                      "key": 1539010454551,
+                      "key_as_string": "2018-10-08T14:54:14.551Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "5",
+                "doc_count": 17,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 16,
+                  "buckets": [
+                    {
+                      "key": 1539010454541,
+                      "key_as_string": "2018-10-08T14:54:14.541Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "4",
+                "doc_count": 16,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 15,
+                  "buckets": [
+                    {
+                      "key": 1539010454552,
+                      "key_as_string": "2018-10-08T14:54:14.552Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "1",
+                "doc_count": 13,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 12,
+                  "buckets": [
+                    {
+                      "key": 1539010454514,
+                      "key_as_string": "2018-10-08T14:54:14.514Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": "192.168.7.219",
+          "doc_count": 79,
+          "group_by_identifier": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+              {
+                "key": "1",
+                "doc_count": 24,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 23,
+                  "buckets": [
+                    {
+                      "key": 1539010454548,
+                      "key_as_string": "2018-10-08T14:54:14.548Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "3",
+                "doc_count": 17,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 15,
+                  "buckets": [
+                    {
+                      "key": 1539010454536,
+                      "key_as_string": "2018-10-08T14:54:14.536Z",
+                      "doc_count": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "4",
+                "doc_count": 16,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 15,
+                  "buckets": [
+                    {
+                      "key": 1539010454532,
+                      "key_as_string": "2018-10-08T14:54:14.532Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "2",
+                "doc_count": 12,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 11,
+                  "buckets": [
+                    {
+                      "key": 1539010454543,
+                      "key_as_string": "2018-10-08T14:54:14.543Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "5",
+                "doc_count": 10,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 9,
+                  "buckets": [
+                    {
+                      "key": 1539010454546,
+                      "key_as_string": "2018-10-08T14:54:14.546Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": "192.168.5.12",
+          "doc_count": 73,
+          "group_by_identifier": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+              {
+                "key": "1",
+                "doc_count": 19,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 18,
+                  "buckets": [
+                    {
+                      "key": 1539010454552,
+                      "key_as_string": "2018-10-08T14:54:14.552Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "5",
+                "doc_count": 16,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 15,
+                  "buckets": [
+                    {
+                      "key": 1539010454551,
+                      "key_as_string": "2018-10-08T14:54:14.551Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "2",
+                "doc_count": 13,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 12,
+                  "buckets": [
+                    {
+                      "key": 1539010454550,
+                      "key_as_string": "2018-10-08T14:54:14.550Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "3",
+                "doc_count": 13,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 11,
+                  "buckets": [
+                    {
+                      "key": 1539010454549,
+                      "key_as_string": "2018-10-08T14:54:14.549Z",
+                      "doc_count": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "4",
+                "doc_count": 12,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 11,
+                  "buckets": [
+                    {
+                      "key": 1539010454546,
+                      "key_as_string": "2018-10-08T14:54:14.546Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": "192.168.2.125",
+          "doc_count": 72,
+          "group_by_identifier": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+              {
+                "key": "3",
+                "doc_count": 17,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 16,
+                  "buckets": [
+                    {
+                      "key": 1539010454552,
+                      "key_as_string": "2018-10-08T14:54:14.552Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "5",
+                "doc_count": 17,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 16,
+                  "buckets": [
+                    {
+                      "key": 1539010454550,
+                      "key_as_string": "2018-10-08T14:54:14.550Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "1",
+                "doc_count": 15,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 14,
+                  "buckets": [
+                    {
+                      "key": 1539010454550,
+                      "key_as_string": "2018-10-08T14:54:14.550Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "4",
+                "doc_count": 14,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 13,
+                  "buckets": [
+                    {
+                      "key": 1539010454545,
+                      "key_as_string": "2018-10-08T14:54:14.545Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "2",
+                "doc_count": 9,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 8,
+                  "buckets": [
+                    {
+                      "key": 1539010454538,
+                      "key_as_string": "2018-10-08T14:54:14.538Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": "192.168.1.1",
+          "doc_count": 55,
+          "group_by_identifier": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+              {
+                "key": "4",
+                "doc_count": 13,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 12,
+                  "buckets": [
+                    {
+                      "key": 1539010454552,
+                      "key_as_string": "2018-10-08T14:54:14.552Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "2",
+                "doc_count": 12,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 11,
+                  "buckets": [
+                    {
+                      "key": 1539010454551,
+                      "key_as_string": "2018-10-08T14:54:14.551Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "5",
+                "doc_count": 12,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 11,
+                  "buckets": [
+                    {
+                      "key": 1539010454546,
+                      "key_as_string": "2018-10-08T14:54:14.546Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "3",
+                "doc_count": 10,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 9,
+                  "buckets": [
+                    {
+                      "key": 1539010454552,
+                      "key_as_string": "2018-10-08T14:54:14.552Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "1",
+                "doc_count": 8,
+                "get_latest": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 7,
+                  "buckets": [
+                    {
+                      "key": 1539010454545,
+                      "key_as_string": "2018-10-08T14:54:14.545Z",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "search": {
+    "request": {
+      "index": [
+        "app-events*"
+      ],
+      "body": {
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": "now-30m"
+                  }
+                }
+              },
+              {
+                "query_string": {
+                  "default_field": "appEvent.eventType",
+                  "query": "LOGIN_SUCCESS OR LOGIN_FAILURE"
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "group_by_requestIP": {
+            "terms": {
+              "field": "appEvent.requestIP.keyword",
+              "size": 5
+            },
+            "aggs": {
+              "group_by_identifier": {
+                "terms": {
+                  "field": "appEvent.identifier.keyword",
+                  "size": 5
+                },
+                "aggs": {
+                  "get_latest": {
+                    "terms": {
+                      "field": "@timestamp",
+                      "size": 1,
+                      "order": {
+                        "_key": "desc"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

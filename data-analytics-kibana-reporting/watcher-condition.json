@@ -1,0 +1,5 @@
+{
+  "script": {
+    "script": "var requestIPbuckets = payload.aggregations.group_by_requestIP.buckets; payload.collector = []; requestIPbuckets.filter(function(requestIP) { return requestIP.key; }).forEach(function(requestIP) { var requestIPKey = requestIP.key; var users = requestIP.group_by_identifier.buckets; if (users.length > 1) { users.filter(function(user) { return user.key; }).forEach(function(user) { payload.collector.push({ 'ip': requestIPKey, 'identifier': user.key, 'count': user.doc_count  }); }); }}); payload.collector.length > 0;"
+  }
+}
