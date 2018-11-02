@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script type="text/javascript" src="Lesson 4 - Object Literals.js"></script>
+</head>
+<body>
+    <h1>Welcome to Lesson 4 - Object Literals</h1>
+    <div id="content"></div>
+    <script type="text/javascript">
+        let objectCreatedWithOldWay = document.createElement('div');
+        
+        objectCreatedWithOldWay.innerHTML = "OlderWay of using Object: " + JSON.stringify(olderWayEmployee); 
+
+        let objectCreatedWithLiterals = document.createElement('div');
+        objectCreatedWithLiterals.innerHTML = "Object created with object Literals: " + JSON.stringify(objectLiteralWayEmployee); 
+        
+        let contentDiv = document.getElementById('content');
+        contentDiv.appendChild(objectCreatedWithOldWay);
+        contentDiv.appendChild(objectCreatedWithLiterals);
+    </script>
+</body>
+</html>
