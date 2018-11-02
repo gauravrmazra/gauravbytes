@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="Lesson1-NewVariableSyntax.js"></script>
+</head>
+
+<body>
+    <h1>Welcome to Lesson 1 - New Variable Syntax</h1>
+    <div id="output">
+
+    </div>
+    <script type="text/javascript">
+        function appendMessage(message) {
+            let div = document.createElement('div');
+            div.innerHTML = message;
+            document.getElementById('output').appendChild(div);
+        }
+
+        function appendErrorMessage(startingText, e) {
+            appendMessage(startingText + e);
+        }
+
+        try {
+            getClothing(false);
+            appendMessage("Old Variable executed seemlessly.");
+        } catch (e) {
+            appendErrorMessage("Old var exception: ", e);
+        }
+
+        try {
+            getClothingBlockScoped(false);
+        } catch (e) {
+            appendErrorMessage("Block scoped exception: ", e);
+        }
+
+        try {
+            getClothingConstScoped(false);
+        } catch (e) {
+            appendErrorMessage("Const scoped exception: ", e);
+        }
+    </script>
+</body>
+
+</html>
