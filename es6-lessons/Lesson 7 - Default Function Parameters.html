@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script type="text/javascript" src="Lesson 7 - Default Function Parameters.js"></script>
+</head>
+<body>
+    <h1>Welcome to Lesson 7 - Default parameters for Functions</h1>
+    <div id="content"></div>
+    <script type="text/javascript">
+        let functionWithParams = document.createElement('div');
+        
+        functionWithParams.innerHTML = "Function called with parameters: " + greet('Guten Tag!!!', 'Rasham'); 
+
+        let functionWithoutParams = document.createElement('div');
+        functionWithoutParams.innerHTML = "Function called without parameters (Default params kicks in :) ): " + greet();
+        
+        let contentDiv = document.getElementById('content');
+        contentDiv.appendChild(functionWithParams);
+        contentDiv.appendChild(functionWithoutParams);
+    </script>
+</body>
+</html>
