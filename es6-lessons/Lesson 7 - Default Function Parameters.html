@@ -16,6 +16,14 @@
         let contentDiv = document.getElementById('content');
         contentDiv.appendChild(functionWithParams);
         contentDiv.appendChild(functionWithoutParams);
+
+        let functionParamsWithArrayDestructing = document.createElement('div');
+        functionParamsWithArrayDestructing.innerHTML = "Function called without params: " + makeJuice();
+        contentDiv.appendChild(functionParamsWithArrayDestructing);
+
+        let functionParamsArrayDestructing = document.createElement('div');
+        functionParamsArrayDestructing.innerHTML = "Function called with params: " + makeJuice([true, true]);
+        contentDiv.appendChild(functionParamsArrayDestructing);
     </script>
 </body>
 </html>
