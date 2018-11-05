@@ -1,0 +1,1 @@
+const symb = Symbol('lion')
