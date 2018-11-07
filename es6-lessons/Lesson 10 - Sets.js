@@ -9,3 +9,11 @@ console.log(uniqueNumbers);
 
 //clear all items from set
 uniqueNumbers.clear();
+
+//WeakSet example
+const weakSetFlavors = new WeakSet();
+
+const chocochip = { flavor: 'chocochip' };
+const redvelvet = { flavor: 'redvelvet' };
+weakSetFlavors.add(chocochip);
+weakSetFlavors.add(redvelvet);
