@@ -6,3 +6,6 @@ console.log(uniqueNumbers);
 
 uniqueNumbers.remove(1);
 console.log(uniqueNumbers);
+
+//clear all items from set
+uniqueNumbers.clear();
