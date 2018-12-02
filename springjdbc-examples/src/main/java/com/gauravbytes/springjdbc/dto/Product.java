@@ -13,7 +13,7 @@ public class Product {
 	
 	public Product()
 	{
-		
+		// Default constructor
 	}
 
 	public int getId() {
