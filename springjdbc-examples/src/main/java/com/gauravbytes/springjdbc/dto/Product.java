@@ -11,9 +11,13 @@ public class Product {
 	private String name;
 	private String description;
 	
-	public Product()
-	{
+	public Product() {
 		// Default constructor
+	}
+	
+	public Product(String name, String description) {
+		this.name = name;
+		this.description = description;
 	}
 
 	public int getId() {
