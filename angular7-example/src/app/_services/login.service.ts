@@ -38,4 +38,9 @@ export class LoginService {
             return result;
         }));
   }
+
+  logout() {
+    // TODO call to server to clear token
+    this.userSubject.next(null);
+  }
 }

@@ -48,13 +48,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       } else {
         this.loading = false;
-        //this.alertService.error(`Login failed due to: ${data.status}`);
+        // this.alertService.error(`Login failed due to: ${data.status}`);
       }
     }, error => {
       this.loading = false;
       this.submitted = false;
       if (error.status === 403) {
-        //this.alertService.error(`wrong username or password`);
+        // this.alertService.error(`wrong username or password`);
       }
     });
   }
