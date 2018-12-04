@@ -2,10 +2,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../_services/login.service';
 
-import {first} from 'rxjs';
 import { LoginResponse } from '../_models/login-response';
 import { LoginStatus } from '../_models/login-status.enum';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'gb-login',
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe((data: LoginResponse) => {
       if (data.status === LoginStatus.SUCCESS) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['home']);
       } else {
         this.loading = false;
         // this.alertService.error(`Login failed due to: ${data.status}`);

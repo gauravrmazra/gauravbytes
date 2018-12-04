@@ -5,42 +5,43 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { LoginRequest } from '../_models/login-request';
 import { LoginResponse } from '../_models/login-response';
 import { LoginStatus } from '../_models/login-status.enum';
+import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private userSubject: BehaviorSubject<LoginResponse>;
-  private user: Observable<LoginResponse>;
+  private userSubject: BehaviorSubject<User>;
+  private user: Observable<User>;
 
 
   constructor(private http: HttpClient) {
-    this.userSubject = new BehaviorSubject<LoginResponse>({ token: null, status: LoginStatus.FAILURE });
+    this.userSubject = new BehaviorSubject<User>({ token: null, username: null, status: LoginStatus.FAILURE });
     this.user = this.userSubject.asObservable();
   }
 
-  get currentUserAsObservable() {
-    return this.userSubject;
+  get currentUserAsObservable(): Observable<User> {
+    return this.user;
   }
 
   get currentUser() {
       return this.userSubject.value;
   }
 
-  login(loginRequest: LoginRequest) {
+  login(loginRequest: LoginRequest): Observable<LoginResponse> {
     return this.http.post(`/login`, loginRequest)
         .pipe(map((response: LoginResponse) => {
-            const status: LoginStatus | undefined = (<any>LoginStatus)[response.status.toString()];
-            const result: LoginResponse = { status: status, token: response.token };
+            const result: LoginResponse = { status: response.status, token: response.token };
             if (result && result.status === LoginStatus.SUCCESS) {
-                this.userSubject.next(result);
+                this.userSubject.next({token: result.token, status: response.status, username: loginRequest.username });
             }
             return result;
         }));
   }
 
   logout() {
-    // TODO call to server to clear token
-    this.userSubject.next(null);
+    this.http.post(`/logout`, this.currentUser).subscribe(response => {
+      this.userSubject.next(null);
+    });
   }
 }

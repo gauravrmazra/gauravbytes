@@ -3,6 +3,7 @@ import { LoginResponse } from '../_models/login-response';
 import { LoginService } from '../_services/login.service';
 import { LoginStatus } from '../_models/login-status.enum';
 import { Router } from '@angular/router';
+import { User } from '../_models/user';
 
 @Component({
   selector: 'gb-home',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private currentUser: LoginResponse;
+  private currentUser: User;
 
   constructor(private router: Router, private loginService: LoginService) { }
 

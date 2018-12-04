@@ -1,9 +1,13 @@
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center pt-2">
+            Gaurav Bytes: Angular 7 Login
+        </h1>
+    </div>
+</div>
 <div class="row pt-5">
-  <h1>
-    Gaurav Bytes: Angular 7 Login
-  </h1>
   <div class="col-6 m-auto">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && loginForm.get('username').hasError('required') }" />

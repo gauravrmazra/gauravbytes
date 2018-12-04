@@ -4,6 +4,8 @@ import { Observer } from 'rxjs';
 import { HttpBackend } from '@angular/common/http/src/backend';
 import { LoginResponse } from '../_models/login-response';
 import { LoginRequest } from '../_models/login-request';
+import { User } from '../_models/user';
+import { LoginStatus } from '../_models/login-status.enum';
 
 export class MockXHRBackend implements HttpBackend {
   logins: Array<LoginRequest> = [
@@ -11,6 +13,8 @@ export class MockXHRBackend implements HttpBackend {
     { username: 'pardeep', password: 'x'},
     { username: 'mary', password: 'x'}
   ];
+
+  login_users: Array<User> = [];
 
   handle(request: HttpRequest<any>): Observable<HttpEvent<any>> {
     return new Observable((responseObserver: Observer<HttpResponse<any>>) => {
@@ -20,7 +24,7 @@ export class MockXHRBackend implements HttpBackend {
           if (request.urlWithParams.indexOf('mediaitems?medium=') >= 0 || request.url === 'mediaitems') { }
           break;
         case 'POST':
-          if (request.url === 'login') {
+          if (request.url === '/login') {
             // TODO login
             const requestUser: LoginRequest = request.body;
             const authenticatedUser = this.logins.filter(login => login.username === requestUser.username.toLowerCase() 
@@ -29,10 +33,13 @@ export class MockXHRBackend implements HttpBackend {
             if (authenticatedUser != null && authenticatedUser.length === 1) {
               responseOptions = {
                 status: 200,
-                body: { token: 'as', username: authenticatedUser[0].username }
+                body: { token: this._getNewToken(authenticatedUser[0].username), status: LoginStatus.SUCCESS }
               };
             } else {
-              // TODO WIP
+              responseOptions = {
+                status: 403,
+                body: { token: null, status: LoginStatus.FAILURE }
+              };
             }
           }
           break;
@@ -67,6 +74,8 @@ export class MockXHRBackend implements HttpBackend {
   }
 
   _getNewToken(username: string): string {
-    return Math.random().toString(36);
+    const token: string = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    this.login_users.push({ token, username, status: LoginStatus.SUCCESS });
+    return token;
   }
 }
