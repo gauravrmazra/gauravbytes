@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { LoginResponse } from '../_models/login-response';
-import { EventEmitter } from 'events';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../_models/user';
 
 @Component({
@@ -8,17 +6,15 @@ import { User } from '../_models/user';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
+  @Output() logout = new EventEmitter<User>(true);
   @Input() user: User;
-
-  @Output() logoutEvent = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  logout() {
-    this.logoutEvent.emit(this.user.token);
+  onLogout() {
+    this.logout.emit(this.user);
   }
-
 }

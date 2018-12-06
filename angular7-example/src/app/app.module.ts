@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpXhrBackend } from '@angular/common/http';
 import { MockXHRBackend } from './_services/mock-xhr-backend';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MockXHRBackend } from './_services/mock-xhr-backend';
     LoginComponent,
     HomeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
