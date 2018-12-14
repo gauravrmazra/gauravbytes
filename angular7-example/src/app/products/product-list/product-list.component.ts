@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '../_model/product';
 
 @Component({
   selector: 'gb-product-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+
+  @Input() products: Array<Product>;
 
   constructor() { }
 
