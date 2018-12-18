@@ -14,4 +14,8 @@ export class ProductService {
   getProducts(): Observable<Array<Product>> {
     return this.http.get('/products').pipe(map((products: Array<Product>) => products));
   }
+
+  getProduct(id: number): Observable<Product> {
+    return this.http.get(`products/${id}`).pipe(map((product: Product) => product));
+  }
 }
