@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user && user.token">
   <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="/home">Home</a>
+      <a class="nav-item nav-link" routerLink="/products">Products</a>
       <a class="nav-item nav-link" (click)="onLogout()">Logout</a>
   </div>
 </nav>
