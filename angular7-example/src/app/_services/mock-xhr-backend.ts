@@ -111,6 +111,7 @@ export class MockXHRBackend implements HttpBackend {
       let responseOptions;
       switch (request.method) {
         case 'GET':
+          responseOptions = this.handleGet(request);
           break;
         case 'POST':
           responseOptions = this.handlePost(request);

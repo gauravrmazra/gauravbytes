@@ -1,3 +1,4 @@
-<p>
-  product-details works!
-</p>
+<div *ngIf="product">
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.description }}</p>
+</div>
