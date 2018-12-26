@@ -1,6 +1,25 @@
+
+## 1. Creating a docker machine
+
 docker-machine create --driver=[NAME OF DRIVER] [HOST_MACHINE_NAME]
 
 ## In case of virtualbox as driver and Hyper-V is enabled then it won't be able to create
 ## so add option --virtualbox-no-vtx-check as follows
 ## docker-machine create --driver=virtualbox --virtualbox-no-vtx-check gauravhost
+
+
+## 2. Checking environment variables
+
+env | grep DOCKER
+
+## If it returns nothing then you can set it as follows
+
+docker-machine env [HOST_MACHINE_NAME] ## Name of the host created previously
+
+## The above command will print all the env variables
+
+eval $(docker-machine env [HOST_MACHINE_NAME])
+
+env | grep DOCKER
+
 
