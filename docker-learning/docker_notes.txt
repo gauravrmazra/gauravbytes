@@ -43,8 +43,27 @@ docker container ls
 ## run wildfly container in foreground interactive mode
 docker container run -it jboss/wildfly
 
-
 ## run container in background mode
 docker container run -d jboss/wildfly
 
+## docker stop container
+docker container stop [container_name or container_id]
+
+## docker run container with specific name
+docker container run -d --name web-app jboss/wildfly
+
+## docker kill and delete container
+docker container rm -f [container_name or container_id]
+
+## Overriding the default command and run bash on new container
+docker container run -it jboss/wildfly bash
+
+## Mapping random port of docker machine to container
+docker container run -d --name web -P jboss/wildfly
+
+## Mapping specific port of the docker machine to container what -p 8080:8080 means is map 8080 port of docker machine to 8080 port of container
+docker container run -d --name web -p 8080:8080 jboss/wildfly
+
+## Mounting volume on container
+docker container run -d --name web -p 8080:8080 -v `pwd`/webapp.war:/opt/jboss/wildfly/standalone/deployments/webapp.war jboss/wildfly
 
