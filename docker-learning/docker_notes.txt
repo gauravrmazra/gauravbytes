@@ -22,4 +22,29 @@ eval $(docker-machine env [HOST_MACHINE_NAME])
 
 env | grep DOCKER
 
+## Get version of docker
+docker --version
+
+## More information on docker-machine
+docker info
+
+## Client and machine version
+docker version
+
+## to hide legacy commands from help docker --help
+DOCKER_HIDE_LEGACY_COMMANDS=true
+
+## list all the available images
+docker image ls
+
+## list all the containers
+docker container ls
+
+## run wildfly container in foreground interactive mode
+docker container run -it jboss/wildfly
+
+
+## run container in background mode
+docker container run -d jboss/wildfly
+
 
