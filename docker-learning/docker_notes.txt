@@ -67,3 +67,6 @@ docker container run -d --name web -p 8080:8080 jboss/wildfly
 ## Mounting volume on container
 docker container run -d --name web -p 8080:8080 -v `pwd`/webapp.war:/opt/jboss/wildfly/standalone/deployments/webapp.war jboss/wildfly
 
+
+## Running registry locally
+docker run -d -p 5000:5000 --restart always --name registry registry:2.6.2
