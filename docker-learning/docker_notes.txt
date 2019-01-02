@@ -70,3 +70,27 @@ docker container run -d --name web -p 8080:8080 -v `pwd`/webapp.war:/opt/jboss/w
 
 ## Running registry locally
 docker run -d -p 5000:5000 --restart always --name registry registry:2.6.2
+
+## Docker compose
+
+##Running docker from compose
+docker-compose up -d
+
+## List all the running services
+docker-compose ps
+
+## getting logs of services
+docker-compose logs -f
+
+## stopping and removing container and network
+docker-compose down
+
+## docker-compose option to provide context or namespace (-p)
+docker-compose -p mynamespace up -d
+
+## docker-compose view containers
+docker-compose -p mynamespace ps
+
+## removing services
+docker-compose -p namespace down
+
