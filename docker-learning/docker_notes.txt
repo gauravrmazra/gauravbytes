@@ -94,3 +94,11 @@ docker-compose -p mynamespace ps
 ## removing services
 docker-compose -p namespace down
 
+## initializing swarm mode of docker
+docker swarm init --advertise-addr 192.168.99.100
+
+## leaving swarm cluster
+docker swarm leave
+
+## leaving swarm if you are only node
+docker swarm leave -f
