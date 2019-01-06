@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.SqlProvider;
 
 /**
  * This class returns the generated keys by the database
@@ -16,7 +17,7 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
  * @author Gaurav Rai Mazra <a href="https://gauravbytes.com">My blog</a>
  *         <a href="https://lineofcode.in">Website</a>
  */
-public class ReturnGeneratedKeysPreparedStatementCreator implements PreparedStatementCreator {
+public class ReturnGeneratedKeysPreparedStatementCreator implements PreparedStatementCreator, SqlProvider {
 	private final String sql;
 	private String[] generatedColumnNames;
 
@@ -35,6 +36,11 @@ public class ReturnGeneratedKeysPreparedStatementCreator implements PreparedStat
 	public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 		return generatedColumnNames.length > 0 ? con.prepareStatement(this.sql, this.generatedColumnNames)
 				: con.prepareStatement(this.sql, Statement.RETURN_GENERATED_KEYS);
+	}
+
+	@Override
+	public String getSql() {
+		return this.sql;
 	}
 
 }
