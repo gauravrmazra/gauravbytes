@@ -1,5 +1,6 @@
 package com.gauravbytes.springjdbc;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,5 +21,11 @@ public class JdbcTemplateExample {
 		jdbcTemplate.afterPropertiesSet();
 		Integer count = jdbcTemplate.queryForObject("select count(*) from product", Integer.class);
 		log.info(() -> String.format("There are total %d products", count));
+		
+		Integer mobileProducts = jdbcTemplate.queryForObject("select count(*) from product where category=?", Integer.class, "mobile");
+		log.info(() -> String.format("There are total %d mobile products", mobileProducts));
+		
+		List<String> mobileNames = jdbcTemplate.queryForList("select name from product where category='mobile'", String.class);
+		log.info(() -> String.format("Name of mobiles: %s", mobileNames.toString()));
 	}
 }
