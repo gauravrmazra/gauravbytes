@@ -9,15 +9,16 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.gauravbytes.springjdbc.dto.Product;
+import com.gauravbytes.springjdbc.dto.ProductResponse;
 
 /**
  * Customized ResultSetExtractor used to return List of Products
- * @author Gaurav Rai
+ * @author Gaurav Rai Mazra
  * 
  * <a href="https://gauravbytes.com">My blog</a>
  * <a href="https://lineofcode.in">Website</a>
  */
-public class ProductResultSetExtractor implements ResultSetExtractor<List<Product>> {
+public class ProductResultSetExtractor implements ResultSetExtractor<ProductResponse> {
 	private final RowMapper<Product> productRowMapper;
 	
 	public ProductResultSetExtractor(RowMapper<Product> productRowMapper) {
@@ -26,7 +27,7 @@ public class ProductResultSetExtractor implements ResultSetExtractor<List<Produc
 	}
 
 	@Override
-	public List<Product> extractData(ResultSet rs) throws SQLException {
+	public ProductResponse extractData(ResultSet rs) throws SQLException {
 		final List<Product> products = new ArrayList<>();
 
 		int rowNum = 0;
@@ -34,8 +35,8 @@ public class ProductResultSetExtractor implements ResultSetExtractor<List<Produc
 			products.add(productRowMapper.mapRow(rs, rowNum));
 			rowNum++;
 		}
-		
-		return products;
+
+		return ProductResponse.of(products);
 	}
 
 }
