@@ -19,7 +19,6 @@ public class PreparedStatementCreatorExample {
 
 	public static void main(String[] args) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(JdbcDataSourceUtils.getH2Database());
-		jdbcTemplate.afterPropertiesSet();
 		Integer key = jdbcTemplate.execute(
 				new ReturnGeneratedKeysPreparedStatementCreator(
 						"insert into product(name, category, description) values('Acer Laptop', 'laptop', 'Predator series')"),
