@@ -102,3 +102,10 @@ docker swarm leave
 
 ## leaving swarm if you are only node
 docker swarm leave -f
+
+## listening to ip to hear request from other machines/worker
+docker swarm init --listen-addr [IP]
+
+## joining worker machines
+docker swarm join --token [worker_token] <MANAGER>
+
