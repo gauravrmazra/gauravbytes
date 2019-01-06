@@ -18,7 +18,7 @@ public class JdbcTemplateExample {
 	
 	public static void main(String[] args) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(JdbcDataSourceUtils.getH2Database());
-		jdbcTemplate.afterPropertiesSet();
+		
 		Integer count = jdbcTemplate.queryForObject("select count(*) from product", Integer.class);
 		log.info(() -> String.format("There are total %d products", count));
 		

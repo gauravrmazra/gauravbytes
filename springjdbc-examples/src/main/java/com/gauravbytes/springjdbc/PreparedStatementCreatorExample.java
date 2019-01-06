@@ -22,7 +22,7 @@ public class PreparedStatementCreatorExample {
 		jdbcTemplate.afterPropertiesSet();
 		Integer key = jdbcTemplate.execute(
 				new ReturnGeneratedKeysPreparedStatementCreator(
-						"insert into product(name, description) values('Acer Laptop', 'Predator series')"),
+						"insert into product(name, category, description) values('Acer Laptop', 'laptop', 'Predator series')"),
 				new GeneratedKeysPreparedStatementCallback());
 		log.info(() -> String.format("Product saved in database with key: %d", key));
 	}

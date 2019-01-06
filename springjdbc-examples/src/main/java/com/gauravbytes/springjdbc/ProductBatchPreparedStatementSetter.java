@@ -27,7 +27,8 @@ public class ProductBatchPreparedStatementSetter implements BatchPreparedStateme
 	public void setValues(PreparedStatement ps, int i) throws SQLException {
 		Product product = products.get(i);
 		ps.setString(1, product.getName());
-		ps.setString(2, product.getDescription());
+		ps.setString(2, product.getCategory());
+		ps.setString(3, product.getDescription());
 	}
 
 	@Override

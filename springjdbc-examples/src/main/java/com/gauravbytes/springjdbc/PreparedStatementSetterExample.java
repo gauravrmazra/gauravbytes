@@ -18,11 +18,11 @@ public class PreparedStatementSetterExample {
 
 	public static void main(String[] args) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(JdbcDataSourceUtils.getH2Database());
-		jdbcTemplate.afterPropertiesSet();
 		
-		int updateCount = jdbcTemplate.update("insert into product(name, description) values(?,?)", ps -> {
+		int updateCount = jdbcTemplate.update("insert into product(name, category, description) values(?,?,?)", ps -> {
 			ps.setString(1, "Lenovo Bag");
-			ps.setString(2, "Handcrafted bags by Lenovo");
+			ps.setString(2, "bag");
+			ps.setString(3, "Handcrafted bags by Lenovo");
 		});
 		
 		log.info(() -> String.format("Product inserted: %d", updateCount));

@@ -19,7 +19,6 @@ public class RowMapperExample {
 	
 	public static void main(String[] args) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(JdbcDataSourceUtils.getH2Database());
-		jdbcTemplate.afterPropertiesSet();
 		Product apple = jdbcTemplate.queryForObject("select * from product where id=1", new ProductRowMapper());
 		log.info(apple::toString);
 	}

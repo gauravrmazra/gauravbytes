@@ -20,7 +20,7 @@ public class ResultSetExtractorExample {
 
 	public static void main(String[] args) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(JdbcDataSourceUtils.getH2Database());
-		jdbcTemplate.afterPropertiesSet();
+
 		List<Product> products = jdbcTemplate.query("select * from product",
 				new ProductResultSetExtractor(new ProductRowMapper()));
 

@@ -19,12 +19,11 @@ public class JdbcBatchUpdateExample {
 
 	public static void main(String[] args) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(JdbcDataSourceUtils.getH2Database());
-		jdbcTemplate.afterPropertiesSet();
 
-		int[] results = jdbcTemplate.batchUpdate("insert into product (name, description) values(?,?)",
+		int[] results = jdbcTemplate.batchUpdate("insert into product (name, category, description) values(?,?,?)",
 				new ProductBatchPreparedStatementSetter(
-						Arrays.asList(new Product("Lenovo Laptop", "Thinkpad series laptop"),
-								new Product("Acer Laptop", "Predator series laptop"))));
+						Arrays.asList(new Product("Lenovo Laptop", "laptop", "Thinkpad series laptop"),
+								new Product("Acer Laptop", "laptop", "Predator series laptop"))));
 		log.info(() -> String.format("Inserted rows: %s", Arrays.toString(results)));
 	}
 }

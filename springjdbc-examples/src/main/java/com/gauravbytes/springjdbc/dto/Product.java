@@ -9,14 +9,16 @@ package com.gauravbytes.springjdbc.dto;
 public class Product {
 	private int id;
 	private String name;
+	private String category;
 	private String description;
 	
 	public Product() {
 		// Default constructor
 	}
 	
-	public Product(String name, String description) {
+	public Product(String name, String category, String description) {
 		this.name = name;
+		this.category = category;
 		this.description = description;
 	}
 
@@ -47,5 +49,13 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + "]";
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }
