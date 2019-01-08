@@ -109,3 +109,34 @@ docker swarm init --listen-addr [IP]
 ## joining worker machines
 docker swarm join --token [worker_token] <MANAGER>
 
+## adding another manager in swarm
+docker swarm join --manager --token <manger_token> --listen-addr <master-2> <master-1>
+
+## How a machine can join swarm
+docker-machine ssh [MANAGER_NAME] "docker swarm init --listen-addr $(docker-machine ip [MANAGER_NAME]) --advertise-addr $(docker-machine ip [MANAGER_NAME])"
+
+## Check the cluster of manager
+docker-machine ssh [MANAGER_NAME] "docker node ls"
+
+## Getting token of Manager in swarm
+docker-machine ssh [MANAGER_NAME] "docker swarm join-token manager -q"
+
+## Getting worker token 
+docker-machine ssh [MANAGER_NAME] "docker swarm join-token worker -q"
+
+##manager joining the swarm
+docker-machine ssh [MANAGER_NAME] \
+        "docker swarm join \
+        --token `docker-machine ssh [MANAGER_LEADER] "docker swarm join-token manager -q"` \
+        --listen-addr $(docker-machine ip [MANAGER_NAME]) \
+        --advertise-addr $(docker-machine ip [MANAGER_NAME]) \
+        $(docker-machine ip [MANAGER_LEADER])"
+		
+		
+## worker joining the swarm
+docker-machine ssh [WORKER_MACHINE_NAME] \
+        "docker swarm join \
+        --token `docker-machine ssh [MANAGER_LEADER] "docker swarm join-token worker -q"` \
+        --listen-addr $(docker-machine ip [WORKER_MACHINE_NAME]) \
+        --advertise-addr $(docker-machine ip [WORKER_MACHINE_NAME]) \
+        $(docker-machine ip [MANAGER_LEADER])"
