@@ -140,3 +140,18 @@ docker-machine ssh [WORKER_MACHINE_NAME] \
         --listen-addr $(docker-machine ip [WORKER_MACHINE_NAME]) \
         --advertise-addr $(docker-machine ip [WORKER_MACHINE_NAME]) \
         $(docker-machine ip [MANAGER_LEADER])"
+		
+## Starting application in replicated mode
+	## Go to docker leader
+	docker-machine ssh [MANAGER_LEADER]
+	docker service create --name web --replicas 3 -p 8080:8080 jboss/wildfly
+	
+	##Checking the service
+	docker service ls
+	
+	## Inspecting the service
+	docker service inspect [SERVICE_NAME]
+	
+	## More details about service
+	docker service ps [SERVICE_NAME]
+
