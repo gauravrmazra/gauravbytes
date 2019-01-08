@@ -155,3 +155,12 @@ docker-machine ssh [WORKER_MACHINE_NAME] \
 	## More details about service
 	docker service ps [SERVICE_NAME]
 
+## Scaling a docker service
+docker service scale [SERVICE_NAME]=[NEW_SCALE E.G. 7]
+
+## Rolling updates of service
+docker service update [SERVICE_NAME] --image jboss/wildfly:2 --update-parallelism 2 --update-delay 10s
+
+## Deploy multi-container app 
+docker stack deploy --compose-file=docker-compose.yml [APP_NAME]
+
