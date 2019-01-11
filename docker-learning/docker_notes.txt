@@ -174,3 +174,8 @@ docker daemon --label=wildfly.storage=ssd
 ## tunneling to aws
 ssh -i ~/.ssh/[NAME_OF_THE_PEM].pem -NL localhost:2374:/var/run/docker.sock docker@<master-ip>
 
+## Creating volumes
+docker volume create [VOL_NAME]
+
+## Running containers to use this volumes
+docker container run -d --name [NAME_OF_CONTAINER] -v [VOL_NAME]:[MOUNT_POINT_FOR_SERVICE] [NAME_OF_IMAGE]

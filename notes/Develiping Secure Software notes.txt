@@ -1,0 +1,18 @@
+Automated code analysis : Static and/ or Dynamic code analysis
+
+Secure Design:
+ - SQL injection attacks
+   - Design pattern for security
+
+Architectural design for security
+  - Single access point
+    - Drawback: could of Single point of failure
+
+Requirement level threats
+ - Requirement Engineer do not know what questions to ask for Security
+   - Software security expert with Requirement engineer
+   - Comprehensive checklist for security
+   
+Threat modeling
+  - STRIDE threat model
+
