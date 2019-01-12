@@ -16,3 +16,32 @@ Requirement level threats
 Threat modeling
   - STRIDE threat model
 
+Architectural analysis of security
+
+- ToAA
+	Tactic-oriented architectural analysis
+		Questions the tactics for security
+		- Detect intrusion (Logging, SQL injection detection)
+		- detect service denial
+		- Verify message integrity (sanitizing user inputs)
+		- Detect Message Delay
+		- Identify Actors
+		- Authenticate Actors
+		- Authorize Actors
+		- Limit actors (database views, role-based access control and business logic to limit the view)
+		- Limit Exposure
+		- Encrypt Data (At REST)
+		- Separate entities
+		
+- PoAA
+	Pattern-oriented architectural analysis
+		Checks the security design patterns
+		- Follow up on the design decision made on ToAA phase
+		- Verify if Security Design pattern is followed
+- VoAA
+	Vulnerability-oriented architectural analysis
+		Source code inspection phase
+	- Locate Source code implementing PoAA
+	- Various part of system use the security pattern
+	
+
