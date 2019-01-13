@@ -1,0 +1,25 @@
+HBASE notes
+
+## creating namespace
+create_namespace '[NS_NAME]'
+
+## create logical tables and Column family
+create '[NS_NAME]:employees', 'work', 'demographic'
+
+## remove namespace
+drop_namespace '[NS_NAME]'
+
+## Altering namespace
+alter_namespace '[NS_NAME]', {METHOD => 'set', 'PROPERTY_NAME' => 'PROPERTY_VALUE'}
+
+## get command from shell
+get '[TABLE_NAME]', '[KEY]'
+
+## put function is also called upsert insert or update
+put 'sales', '5099', 'order:orderID'm 'XX-2018-129A'
+
+## remove data using delete command
+delete '[Table_Name]', '[ROW]', '[COL_NAME]', '[TIMESTAMP for specific version deletion only]'
+
+## delete all related to particular row
+deleteall '[TABLE_NAME]', '[ROW]'
