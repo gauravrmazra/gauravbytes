@@ -1,0 +1,45 @@
+Data Engineering
+	- Acquisition
+		- Sources of data
+		- Format of data (Raw, text, file, database)
+			- How best to acquire?
+		- Security issues acquiring data
+			- Authorization, Authentication
+		- Reliability
+		- Latency
+	
+	- Transport
+		- Reliability and integrity of data
+		- Re-transport cost
+		- Security concerns
+		- Latency
+		- Cost of transport
+
+	- Storage
+		- Flexibility 
+		- Native form or summarize it
+		- Schema or Schema - less storage
+		- High availability 
+		- Cost
+	
+	- Processing
+		- Cleansing data
+		- Filtering data which is relevant to business
+		- Enrich data with additional attributes
+		- Aggregate data 
+		- Machine learning
+		
+	- Servicing
+		- Latency requirements
+		- Redundancy and availability requirements
+		- Flexibility of schema
+		- APIs for consumer applications
+		
+Big Data 4V's (Volume, Velocity, Variety, Variability)
+
+Big Data pipeline (Functionality, Speed, Reliability, Security, Availability)
+
+
+
+
+
