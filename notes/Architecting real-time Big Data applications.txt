@@ -1,0 +1,75 @@
+
+Use case: Product Recommendation
+
+	Goals:
+		- Real time (within seconds)
+		- Content specific (User previous activity and browser history)
+		- Scalable
+	
+	Technologies:
+		- Apache Kafka as clickstream queue
+		- Apache Spark as Recommendation engine uses clickstream model 
+		- Hazelcast as in-memory database within Recommendation engine
+		- Custom Restful Recommendation Service
+		
+
+Use case: Social Media Sentiment Analysis
+	
+	Goals:
+		- Real-time monitoring (upto few minutes)
+		- Scalability
+		- Real-time summary
+		- Add more social media channels later
+		
+	Solution:
+		- real-time streaming from twitter, facebook, instagram to Custom Real-time subscriber (Custom JVM based application) and push to Queue (Apache Kafka). Text mining engine (Apache Spark) will listen to this queue and pass on data to Sentiment Analysis engine (Python + RestFul service) and then save the result to database (MySQL).
+		
+	Technologies:
+		- Stream processing technologies
+			- Apache Storm
+			- Apache Samza
+			- Apache Spark
+		- Apache Kafka for Queuing.
+
+Use case: Real-time fraud detection
+	
+	Goals: 
+		- Real-time (within minutes)
+		- Asynchronous
+		- Predictive analytics
+		- Enable human view of fraudulent transactions
+		
+	System:
+		Fraud tracker and Ecommerce system write to Transaction database. Data science team use this and create model and persist it in model database (not real-time). Ecommerce system will stream transaction data to Prediction Engine which will use Model to Predict and push fraudulent transaction to Prediction Queue.
+	
+	Technologies:
+		- Machine Learning
+			- R or Python
+			- Apache Spark
+			- TensorFlow
+		- Apache Kafka for queuing.
+		
+
+Use case: Real-time mobile coupons
+	- Goals:
+		- Real-time (within seconds)
+		- Location specific
+		- User-based recommendations
+		- Scalable
+		
+	- System solution:
+		- Predictive analytics to identify types of services or products the user is interested in buying
+		- Track location of user from their mobile phone.
+		- Choose coupons for services user will prefer based on history purchase.
+		
+		User history database is used by data science team and uses User preferences database and Location services as well.
+		
+		Coupon recommender will listen to real-time messages from Queue. Queries the User preferences and Location services databases to come up with list of coupons user will be interested in. Then push these to mobile coupon queue.
+		
+	- Technologies:
+		- Apache Spark for Coupon recommendation system
+		- Apache Kafka for Coupon queues
+		- Custom build mobile gateway service.
+		
+		
+

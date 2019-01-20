@@ -1,0 +1,71 @@
+Use case: Data warehouse
+
+	- Goals: 
+		- Cheap and cost-effective
+		- Massively scalable
+		- Ad hoc querying
+		
+	- Solutions:
+		- Audit DB (Oracle database) is taken using Data pump (Sqoop) to Audit Archive (Apache Hadoop + Hive)
+		
+	- Technologies:
+		- HDFS and Hive
+		- Sqoop
+
+Use case: Log accumulation
+
+	- Goals:
+		- Scalability
+		- Minimum custom work
+		- Multiple sources and sinks
+		- Guranteed delivery
+		
+	- Solutions:
+		- Agent deployed on web-services which will send these logs to Consolidator (Transform capable) and then sent to Log Archive database (HDFS + Hive) and to Network Management System.
+		
+	- Technologies:
+		- HDFS and Hive
+		- Apache Flume
+		
+Use case: IT operations Analytics
+
+	- Goals:
+		- Scalability
+		- Minimum custom work
+		- Operationalization
+		- Ad hoc querying
+		
+	- Solution:
+		- We have Audit trail and Performance Log. We will create Performance Analytics for five minute window and create characteristics.
+		
+	- Technologies:
+		- MySQL for analytics DB.
+		- Apache Pig for processing (5 minute window)
+		
+Use case: Customer 360
+
+	- Goals:
+		- Flexible and grow-able 360 records
+		- Excellent query performance
+		- Integrated transaction view
+		- Flexible query capabilities
+	
+	- Technologies:
+		- Apache Cassendra for customer summary 
+		- Elasticsearch for interaction records
+		- Apache Spark
+		- Apache Kafka for data pipeline
+		
+Use case: Customer analytics
+	- Goals:
+		- Customer 360
+		- Explorative analytics
+		- REST API
+		- Scalability
+		
+	- Solution:
+		- from customer 360 and interaction database, we can add visualization tool (Kibana on Elasticsearch) and add REST API on this database.
+		
+	- Technologies:
+		- Kibana
+		- Custom RestFul webservices on Cassendra and Elasticsearch.
