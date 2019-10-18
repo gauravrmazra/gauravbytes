@@ -4,7 +4,7 @@ import static java.lang.Math.floor;
 import static java.lang.Math.sqrt;
 /**
  * 
- * @author Gaurav Rai Mazra {@linkplain https://lineofcode.in}
+ * @author Gaurav Rai Mazra {@linkplain https://grai.dev}
  *
  */
 public class JumpSearch implements Search {

@@ -3,7 +3,7 @@ package com.gauravbytes.algorithms.search;
 /**
  * 
  * @author Gaurav Rai Mazra
- * {@linkplain https://lineofcode.in}
+ * {@linkplain https://grai.dev}
  *
  */
 public class FrontAndBackSearch implements Search {
