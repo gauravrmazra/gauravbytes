@@ -1,4 +1,5 @@
 import React from 'react';
+import './Welcome.css';
 
 interface IWelcomeProps {
   message?: string
