@@ -1,5 +1,8 @@
 .App-Container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  margin: 10px;
-  padding: 10px;
+  margin: auto;
+  padding: 1rem;
+  max-width: 1440px;
 }

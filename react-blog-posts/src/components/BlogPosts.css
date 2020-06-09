@@ -2,6 +2,15 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.blog-listing {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 40%;
+  flex: 0 0 40%;
+  max-width: 40%;
 }
 
 .blog-container ul.blog-posts {
@@ -12,12 +21,19 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-left: 0;
+  margin: 0;
 }
 
 .blog-container ul.blog-posts li {
   list-style-type: none;
   padding: .75rem 1rem;
   border: 1px solid rgba(0,0,0,.125);
+  cursor: pointer;
+}
+
+.blog-container ul.blog-posts li.active {
+  font-weight: 700;
 }
 
 .blog-container ul.blog-posts li:first-child {
