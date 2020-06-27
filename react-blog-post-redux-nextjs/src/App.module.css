@@ -1,0 +1,65 @@
+.App-Container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  padding: 1rem;
+  max-width: 1440px;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 1rem;
+  margin: 1rem;
+  margin: auto;
+}
+
+.big-box {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+
+  @media(min-width: 576px;) {
+    padding: 4rem 2rem;
+  }
+}
+
+.big-box-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.big-box-p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.big-box-hr {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.code {
+  font-size: 87.5%;
+  color: #e83e8c;
+  word-break: break-word;
+}
+
+.code-r {
+  font-size: 1.2rem;
+  color: #e83e8c;
+  word-break: break-word;
+}
+
+.big-box-a {
+  text-decoration: none;
+}
+
+.big-box-a:hover {
+  font-weight: bold;
+}
+
