@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
         <meta content='Tutorials for Java, Java 8, React JS, React Redux, Next JS, Spring, Spring Cloud, Spring Boot, Apache Avro, concurrency, Design patterns,  Executor Framework, Java concurrency' property='og:description'/>
         <meta content='Gaurav Bytes' property='og:site_name'/>
       </Head>
-      <body>
+      <body style={{ backgroundColor : '#cecece' }}>
         <Main />
         <NextScript />
       </body>
