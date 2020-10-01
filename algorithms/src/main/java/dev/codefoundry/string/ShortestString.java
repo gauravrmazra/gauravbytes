@@ -10,23 +10,7 @@ package dev.codefoundry.string;
  */
 public class ShortestString {
 	public int solve(String s) {
-		int totalChars = s.length();
-		boolean[] deleted = new boolean[totalChars];
-		
-		int i = 0, j = 1;
-		
-		while(i < totalChars && j < totalChars) {
-			if (s.charAt(i) != s.charAt(j)) {
-				deleted[i] = true;
-				deleted[j] = true;
-			}
-		}
-		
-		int notDeleted = 0;
-		for (boolean b : deleted) {
-			if (!b) notDeleted++;
-		}
-		return notDeleted;
+		return s.length();
 	}
 	
 	public static void main(String[] args) {
