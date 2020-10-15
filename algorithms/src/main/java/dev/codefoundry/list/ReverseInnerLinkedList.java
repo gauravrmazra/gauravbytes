@@ -1,5 +1,13 @@
 package dev.codefoundry.list;
 
+/**
+ * 
+ * @author Gaurav Rai Mazra
+ * {@link https://codefoundry.dev}
+ * 
+ * Reverse the subList from LinkedList
+ *
+ */
 public class ReverseInnerLinkedList {
 	class LLNode {
 		int val;
