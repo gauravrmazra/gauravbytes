@@ -5,36 +5,38 @@ public class OddPalindrome {
 		if (s.length() == 0 || s.length() == 1)
 			return true;
 
-		boolean hasOddPalinDrome = false;
-		// aa
 		for (int i = 0; i < s.length(); i++) {
-			int p = i, q = i;
-			int r = s.length() - 1;
+			int result = palin(i, i, s);
 
-			while (p >= 0 && q < r) {
-				if (s.charAt(p) == s.charAt(q)) {
-					if (p > 0) {
-						p--;
-					}
-
-					if (q < r) {
-						q++;
-					}
-				} else {
-					break;
-				}
-			}
-			
-			int len = q - 1 - p;
-			if (len % 2 == 0) {
+			if (result != 0 && result % 2 == 0)
 				return false;
-			} else {
-				hasOddPalinDrome = true;
-			}
+
+			result = palin(i, i + 1, s);
+
+			if (result != 0 && result % 2 == 0)
+				return false;
+
 		}
-		return hasOddPalinDrome;
+		return true;
+	}
+
+	private int palin(int p, int q, String s) {
+		while (p >= 0 && q < s.length() && s.charAt(p) == s.charAt(q)) {
+			p--;
+			q++;
+		}
+
+		return s.substring(p + 1, q).length();
 	}
 	
+	public boolean solve2(String s) {
+		for (int i = 0; i < s.length() -1 ; i++) {
+			if (s.charAt(i) == s.charAt(i + 1)) return false;
+		}
+		
+		return true;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(new OddPalindrome().solve("aba"));
 	}
