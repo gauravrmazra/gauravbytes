@@ -45,7 +45,7 @@ public class CountOccurrences {
 		while(left < right) {
 			mid = left + (right - left) / 2;
 			if (nums[mid] > target) {
-				right--;
+				right = mid;
 			} else {
 				left = mid + 1;
 			}
@@ -53,19 +53,14 @@ public class CountOccurrences {
 		
 		return left;
 	}
-	
-	private int squareRootNSolve(int[] nums, int target) {
-		int blockSize = (int)Math.sqrt(nums.length);
-		return -1;
-	}
 
 	public static void main(String[] args) {
-		int[] nums = new int[] { 1, 1, 2, 2, 2, 2, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 8 };
+		int[] nums = new int[] { 1, 1, 2, 2, 2, 2, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 8 };
 		System.out.println(
-				new CountOccurrences().linearTimeSolve(nums, 2));
+				new CountOccurrences().linearTimeSolve(nums, 7));
 		
 		System.out.println(
-				new CountOccurrences().logNSolve(nums, 2));
+				new CountOccurrences().logNSolve(nums, 7));
 	
 	}
 }
