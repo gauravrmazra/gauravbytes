@@ -38,6 +38,6 @@ public class ReverseLinkedList {
 		ReverseLinkedList r = new ReverseLinkedList();
 		//LLNode node = r.node(1, r.node(2, r.node(3, r.node(4, r.node(5, r.node(6, null))))));
 		LLNode node = r.node(1, null);
-		System.out.println(r.solve(null));
+		System.out.println(r.solve(node));
 	}
 }
