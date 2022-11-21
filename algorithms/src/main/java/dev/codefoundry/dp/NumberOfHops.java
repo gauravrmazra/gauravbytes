@@ -69,7 +69,6 @@ public class NumberOfHops {
 			if (min != Integer.MAX_VALUE)
 				min++;
 
-			System.out.println(min);
 			trees.add(min);
 		}
 

@@ -1,5 +1,7 @@
 package dev.codefoundry.lld;
 
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 
 public class PasswordChecker {
@@ -24,11 +26,11 @@ public class PasswordChecker {
         int length();
     }
 
-    interface PasswordSpec<T> {
+    static interface PasswordSpec<T> {
         public boolean matches(T t);
     }
 
-    class NegatePasswordSpec implements PasswordSpec<T> {
+    class NegatePasswordSpec<T> implements PasswordSpec<T> {
         private final PasswordSpec<T> spec;
         public NegatePasswordSpec(PasswordSpec<T> spec) {
             this.spec = spec;
@@ -39,11 +41,11 @@ public class PasswordChecker {
         }
     }
 
-    class ContainsSpec implements PasswordSpec<T> {
+    class ContainsSpec<T> implements PasswordSpec<T> {
         private final Set<T> values;
 
         public ContainsSpec(Set<T> allowedValues) {
-            this.values = values;
+            this.values = allowedValues;
         }
 
         public boolean matches(T t) {
@@ -51,13 +53,13 @@ public class PasswordChecker {
         }
     }
 
-    class NotContainsSpec extends NegatePasswordSpec<T> {
+    class NotContainsSpec<T> extends NegatePasswordSpec<T> {
         public NotContainsSpec(ContainsSpec<T> spec) {
             super(spec);
         }
     }
 
-    class AndSpec implements PasswordSpec<T> {
+    class AndSpec<T> implements PasswordSpec<T> {
         private final PasswordSpec<T> left;
         private final PasswordSpec<T> right;
 

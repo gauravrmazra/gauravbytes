@@ -61,20 +61,20 @@ public class MinHeap {
     int left = 2 * index - 1;
 		int right = 2 * index;
 		int parent = index - 1;
-		if (this.elements[left] > this.elements[parent] || this.elements[right] > this.elements[parent]) {
+		if (this.elements[left].idx > this.elements[parent].idx || this.elements[right].idx > this.elements[parent].idx) {
 
-			int replacingIndex = this.elements[left] > this.elements[right] ? left : right;
+			int replacingIndex = this.elements[left].idx > this.elements[right].idx ? left : right;
 
-			int temp = this.elements[parent];
+			int temp = this.elements[parent].idx;
 			this.elements[parent] = this.elements[replacingIndex];
-			this.elements[replacingIndex] = temp;
-			balanceAfterPopMax(replacingIndex + 1);
+			this.elements[replacingIndex] = new Pair(temp, this.elements[replacingIndex].val);
+			balanceAfterDelete(replacingIndex + 1);
     }
   } 
 
 
   public static void main(String[] args) {
-    MinHeap heap = new MinHeap(new String[] { "a", "b", "c" });
+    MinHeap heap = new MinHeap(new String[] { "d", "a", "c", "b" });
     System.out.println(Arrays.deepToString(heap.elements));
   
   }
