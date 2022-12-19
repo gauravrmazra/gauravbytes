@@ -1,2 +1,2 @@
 # gauravbytes
-examples for blog.gauravbytes.com
+examples for gauravbytes.com
