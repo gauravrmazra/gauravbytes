@@ -1,2 +1,2 @@
-# gauravbytes
-examples for gauravbytes.com
+# gaurav.cc
+examples for gaurav.cc
