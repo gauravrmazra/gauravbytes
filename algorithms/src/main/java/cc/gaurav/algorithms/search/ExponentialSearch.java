@@ -4,7 +4,7 @@ import cc.gaurav.algorithms.search.BinarySearch.PositionDetectionStrategy;
 
 /**
  * 
- * @author Gaurav Rai Mazra {@linkplain https://grai.dev}
+ * @author Gaurav Rai Mazra
  *         {@linkplain https://gaurav.cc}
  */
 public class ExponentialSearch implements Search {

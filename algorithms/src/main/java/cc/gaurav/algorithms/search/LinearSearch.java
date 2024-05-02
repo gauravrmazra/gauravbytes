@@ -3,7 +3,7 @@ package cc.gaurav.algorithms.search;
 /**
  * 
  * @author Gaurav Rai Mazra
- * {@linkplain https://grai.dev}
+ * {@linkplain https://gaurav.cc}
  *
  */
 public class LinearSearch {

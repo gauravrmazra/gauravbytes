@@ -2,7 +2,6 @@ package cc.gaurav.lld;
 
 import java.util.List;
 import java.util.Set;
-import java.util.function.Predicate;
 
 public class PasswordChecker {
     private List<PasswordSpec<String>> conditions;

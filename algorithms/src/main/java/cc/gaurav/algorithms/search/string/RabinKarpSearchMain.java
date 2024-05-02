@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 /**
  * 
- * @author Gaurav Rai Mazra <a href="https://grai.dev">Gaurav's Portfolio</a>
+ * @author Gaurav Rai Mazra
  *         <a href="https://www.gaurav.cc">Gaurav's Blog</a>
  */
 public class RabinKarpSearchMain {

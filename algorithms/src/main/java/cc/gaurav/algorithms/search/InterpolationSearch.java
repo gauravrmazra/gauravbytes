@@ -2,7 +2,7 @@ package cc.gaurav.algorithms.search;
 
 /**
  * 
- * @author Gaurav Rai Mazra {@linkplain https://grai.dev}
+ * @author Gaurav Rai Mazra
  *         {@linkplain https://gaurav.cc}
  */
 public class InterpolationSearch extends BinarySearch {

@@ -5,11 +5,7 @@ import java.util.Arrays;
 /**
  * 
  * @author Gaurav Rai Mazra
- * 
- *         <a href="https://gaurav.cc">Blog</a>
- * 
- *         <a href="https://grai.dev">About me</a>
- *
+ *         <a href="https://gaurav.cc">About me</a>
  */
 public class PivotedArraySearch extends NonRecursiveBinarySearch {
 	public static void main(String[] args) {
